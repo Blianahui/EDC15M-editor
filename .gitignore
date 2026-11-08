@@ -1,0 +1,17 @@
+# Firmware and EEPROM dumps are never published (see README)
+*.ori
+*.bin
+*.BIN
+*.mod
+*.MOD
+*.eep
+*.hex
+*.dat
+dumps/
+private/
+
+# Misc
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
