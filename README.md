@@ -5,14 +5,16 @@ An open project around the Bosch EDC15 diesel ECUs of the early 2000s:
 - **Map editor** that runs in the browser: open your own dump, edit maps, compare with stock, recalculate the checksum, save. Nothing to install and nothing is uploaded; everything runs locally.
 - **Firmware analysis**: memory map, code structure, calculation chains (fuel, boost, EGR, injection timing), map list tied to the code, fault paths.
 
-Website: **https://edc15m.pages.dev**
+Website: **https://edc15m.pages.dev**  
+Repository: **https://github.com/Blianahui/EDC15M-editor**
 
 ## Supported ECUs
 
 | Vehicle | Engine | ECU | Software | Status |
 | --- | --- | --- | --- | --- |
 | Opel Frontera B | X22DTH 2.2 DTI | Bosch 0281001791, EDC15M, CPU Siemens B58748 (C167) | UU2M6S90_S | editor + full analysis |
-| Nissan Terrano | 2.7 TDi | Bosch EDC15VM+, 29F400 flash | 1037362084 family | in progress, see [docs/terrano](docs/terrano/README.md) |
+| Nissan Terrano II | 2.7 TDi (TD27ETi) | Bosch EDC15VM+, 512 KB | 1037362084, 1037362770 | analysis, see [docs/terrano](docs/terrano/README.md) |
+| Nissan Terrano II | 2.7 TDi (TD27ETi) | Bosch 0281001550, EDC MSA 15.5, 256 KB | 1037356022 | analysis, see [docs/terrano](docs/terrano/README.md) |
 
 Addresses **do not carry over** between ECUs. Even neighbouring software versions place maps differently.
 
@@ -24,7 +26,7 @@ editor/                    map editor (EDC15M_map_editor.html) and its definitio
 defs/                      map definition files per ECU
 research/                  interactive Frontera analysis page
 docs/frontera-x22dth/      Frontera analysis as text
-docs/terrano/              Terrano work
+docs/terrano/              Terrano analysis (EDC15VM+ and 0281001550)
 tools/                     analysis scripts (C166 disassembler etc.)
 ```
 
@@ -46,7 +48,11 @@ Pull requests containing such files will be closed.
 
 ## Contributing
 
-Found a map, confirmed an address, have definitions for another software version? Open an issue or a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Found a map, confirmed an address, have definitions for another software version? Open an [issue](https://github.com/Blianahui/EDC15M-editor/issues) or a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+```
+git clone https://github.com/Blianahui/EDC15M-editor.git
+```
 
 ## Disclaimer
 
@@ -54,7 +60,7 @@ This project is for research and for vehicles not used on public roads. Changing
 
 ## License
 
-[GNU General Public License v3.0](LICENSE). Copyright (C) 2026 edc15m contributors.
+[GNU General Public License v3.0](LICENSE). Copyright (C) 2026 Blianahui and contributors.
 
 You may use, modify and redistribute this project, including commercially, as long as derivative works are released under the same license with their source code.
 

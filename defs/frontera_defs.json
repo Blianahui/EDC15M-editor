@@ -1,0 +1,2239 @@
+{
+ "format": "edc15m-defs",
+ "version": 1,
+ "ecu": "Opel Frontera B X22DTH 0281001791 UU2M6S90_S",
+ "note": "Map address = start of header (X axis ID word). Data is stored row by row along X: index = x*ny + y.",
+ "items": [
+  {
+   "addr": "0x391DA",
+   "kind": "1D",
+   "name": "Curve f(DC5C)",
+   "conf": "L",
+   "tasks": "2327C 2329C",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39512",
+   "kind": "2D",
+   "name": "Idle controller / torque map = f(rpm, E23C)",
+   "conf": "L",
+   "tasks": "2327C 2329C",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x395BA",
+   "kind": "2D",
+   "name": "Likely: fuel → torque = f(rpm, fuel)",
+   "conf": "M",
+   "tasks": "2327C 2329C",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39662",
+   "kind": "2D",
+   "name": "Likely: friction torque = f(rpm, coolant)",
+   "conf": "M",
+   "tasks": "2327C 2329C",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x396D4",
+   "kind": "2D",
+   "name": "Likely: torque ↔ fuel conversion",
+   "conf": "L",
+   "tasks": "2327C 2329C",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x397F0",
+   "kind": "1D",
+   "name": "Curve f(C206) (2.50)",
+   "conf": "L",
+   "tasks": "2327C 2329C",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39808",
+   "kind": "1D",
+   "name": "Curve f(DC98) (1.0)",
+   "conf": "L",
+   "tasks": "2327C 2329C",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39886",
+   "kind": "2D",
+   "name": "Driver demand: fuel = f(rpm, pedal %)  [Titanium: Fuel during acceleration]",
+   "conf": "H",
+   "tasks": "25F98 25FB6 2605C 2615C 26192 261C2 26352 2637E 263AA",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "% pedal",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x39C94",
+   "kind": "1D",
+   "name": "Constant curve 5100 rpm",
+   "conf": "L",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39F6C",
+   "kind": "1D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39F84",
+   "kind": "1D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39F9C",
+   "kind": "1D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39FB4",
+   "kind": "1D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39FCC",
+   "kind": "1D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39FE4",
+   "kind": "1D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39FFC",
+   "kind": "2D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A04A",
+   "kind": "2D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A098",
+   "kind": "2D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A0E6",
+   "kind": "2D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A134",
+   "kind": "2D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A182",
+   "kind": "2D",
+   "name": "",
+   "conf": "M",
+   "tasks": "26B90 26BA6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A2CE",
+   "kind": "2D",
+   "name": "EGR air mass setpoint = f(rpm, fuel), 0.1 mg/stroke  [Titanium: Phase of injection — label is wrong]",
+   "conf": "H",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A4D4",
+   "kind": "1D",
+   "name": "EGR setpoint correction for atm. pressure",
+   "conf": "H",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A528",
+   "kind": "2D",
+   "name": "EGR setpoint factor = f(rpm, temperature)",
+   "conf": "M",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A5D0",
+   "kind": "2D",
+   "name": "EGR setpoint offset = f(rpm, coolant): EGR closed when cold",
+   "conf": "H",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A6C4",
+   "kind": "2D",
+   "name": "Substitute air mass value",
+   "conf": "L",
+   "tasks": "15C84",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A6DC",
+   "kind": "2D",
+   "name": "Substitute air mass value 2",
+   "conf": "L",
+   "tasks": "15C84",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A744",
+   "kind": "2D",
+   "name": "MAF correction = f(T, atm.) (1.0)",
+   "conf": "M",
+   "tasks": "15C84",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A75C",
+   "kind": "1D",
+   "name": "MAF characteristic (raw → flow)",
+   "conf": "H",
+   "tasks": "15C84",
+   "signed": true,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A7C4",
+   "kind": "1D",
+   "name": "EGR duty inversion: 100 % − x",
+   "conf": "H",
+   "tasks": "1EBB6 1EBD0",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A7D0",
+   "kind": "2D",
+   "name": "Boost deviation weight for EGR (0)",
+   "conf": "M",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A81C",
+   "kind": "2D",
+   "name": "Reference boost for EGR (0)",
+   "conf": "M",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3A8C2",
+   "kind": "1D",
+   "name": "Boost deviation curve for EGR (0)",
+   "conf": "M",
+   "tasks": "1E772 1E78A",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B3EC",
+   "kind": "1D",
+   "name": "Start related = f(coolant)",
+   "conf": "L",
+   "tasks": "2574A 25B8A",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B418",
+   "kind": "2D",
+   "name": "Start fuel = f(rpm, coolant)",
+   "conf": "M",
+   "tasks": "257E4 257FC",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B4D2",
+   "kind": "1D",
+   "name": "Start related = f(coolant)",
+   "conf": "L",
+   "tasks": "257E4 257FC",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B52E",
+   "kind": "2D",
+   "name": "Smoke limiter “ext” = f(rpm, air), blended with factor 0x3B926 (=0)  [Titanium: Injection ext]",
+   "conf": "H",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3B6F6",
+   "kind": "2D",
+   "name": "Substitute ext limiter when MAF implausible (0)",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B8BE",
+   "kind": "1D",
+   "name": "Torque limiter “ext”, blended with factor 0x3B926 (=0)  [Titanium: Torque limiter 1]",
+   "conf": "H",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3B926",
+   "kind": "1D",
+   "name": "Blend factor for ext limiters = f(C118), all 0 in stock",
+   "conf": "H",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B966",
+   "kind": "2D",
+   "name": "Fuel limit correction = f(rpm, coolant)",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BA44",
+   "kind": "1D",
+   "name": "Torque limiter (fuel vs rpm), ACTIVE copy  [Titanium: Torque limiter 2]",
+   "conf": "H",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3BAAC",
+   "kind": "1D",
+   "name": "Limp-mode torque limiter (30 mg): pedal/sensor fault",
+   "conf": "H",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BB14",
+   "kind": "2D",
+   "name": "Smoke limiter = f(rpm, air mass), ACTIVE copy  [Titanium: Injection at part throttle]",
+   "conf": "H",
+   "tasks": "220EC 22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3BC22",
+   "kind": "2D",
+   "name": "Substitute smoke limiter when MAF implausible (60 mg)",
+   "conf": "H",
+   "tasks": "220EC 22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BC3A",
+   "kind": "2D",
+   "name": "Over-temperature fuel derating = f(coolant+offset, C2B0)",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BCB0",
+   "kind": "2D",
+   "name": "Over-temperature fuel derating = f(temperature C006, C2B0)",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BD80",
+   "kind": "1D",
+   "name": "Limp-mode fuel ceiling = f(rpm), set 1",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BDE8",
+   "kind": "1D",
+   "name": "Limp-mode fuel ceiling = f(rpm), set 2",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BE50",
+   "kind": "1D",
+   "name": "Atm. pressure offset for over-temperature protection (0)",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3BE90",
+   "kind": "2D",
+   "name": "Fuel derating = f(rpm, fuel) × (C242 − threshold)/4096 (temperature)",
+   "conf": "M",
+   "tasks": "22240 22260",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C21C",
+   "kind": "2D",
+   "name": "Likely idle speed setpoint = f(coolant, air temperature)",
+   "conf": "M",
+   "tasks": "35516 355B6",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C292",
+   "kind": "1D",
+   "name": "Idle setpoint correction = f(C01A)",
+   "conf": "M",
+   "tasks": "355B6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C2A6",
+   "kind": "1D",
+   "name": "Coolant curve 40.8…8.0 (idle/start?)",
+   "conf": "L",
+   "tasks": "24C98 24CB8",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C2FA",
+   "kind": "1D",
+   "name": "Idle related = f(E034) (0)",
+   "conf": "L",
+   "tasks": "355B6",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C3FC",
+   "kind": "2D",
+   "name": "Boost pressure related = f(rpm, DDC4)",
+   "conf": "L",
+   "tasks": "1F2AC 1F2C6",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C46E",
+   "kind": "2D",
+   "name": "Boost setpoint, base = f(rpm, fuel)  [Titanium: Turbo pressure]",
+   "conf": "H",
+   "tasks": "160C4 160E4",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "",
+   "min": 900,
+   "max": 2400
+  },
+  {
+   "addr": "0x3C524",
+   "kind": "2D",
+   "name": "Altitude boost setpoint reduction = f(rpm, fuel)",
+   "conf": "H",
+   "tasks": "160C4 160E4",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C5A8",
+   "kind": "1D",
+   "name": "Weight of 0x3C524 = f(atm. pressure)",
+   "conf": "H",
+   "tasks": "160C4 160E4",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C5D4",
+   "kind": "2D",
+   "name": "Boost offset = f(rpm, atm.) × C1D8 (zeros)",
+   "conf": "M",
+   "tasks": "160C4 160E4",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C79C",
+   "kind": "1D",
+   "name": "Boost setpoint factor = f(temperature) (1.0)",
+   "conf": "M",
+   "tasks": "160C4 160E4",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C7E0",
+   "kind": "2D",
+   "name": "Boost duty limit/linearisation",
+   "conf": "M",
+   "tasks": "1F6B8 1F6D8",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "% duty",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C876",
+   "kind": "2D",
+   "name": "Boost valve pilot duty = f(rpm, fuel), 0.01 %",
+   "conf": "H",
+   "tasks": "1F6B8 1F6D8",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "% duty",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CB54",
+   "kind": "2D",
+   "name": "Timing, channel 2 = f(rpm, fuel) (0)",
+   "conf": "M",
+   "tasks": "1854C 1856A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CBA2",
+   "kind": "2D",
+   "name": "Timing, channel 2, part = f(rpm, fuel) (0)",
+   "conf": "M",
+   "tasks": "1854C 1856A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CBF0",
+   "kind": "1D",
+   "name": "Weight of 0x3CBA2 = f(coolant) (0)",
+   "conf": "M",
+   "tasks": "1854C 1856A",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CC08",
+   "kind": "2D",
+   "name": "Timing offset = f(rpm, channel 2) (0)",
+   "conf": "M",
+   "tasks": "1854C 1856A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CD00",
+   "kind": "2D",
+   "name": "VP44 start-of-injection request = f(rpm, fuel)",
+   "conf": "H",
+   "tasks": "1854C 1856A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CDF8",
+   "kind": "2D",
+   "name": "Timing correction = f(rpm, temperature C242)",
+   "conf": "M",
+   "tasks": "1854C 1856A",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CEFC",
+   "kind": "1D",
+   "name": "Weight of 0x3CFA4 = f(coolant)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CF50",
+   "kind": "1D",
+   "name": "Weight of 0x3D09C = f(atm. pressure)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "factor",
+    "scale": 10000,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CFA4",
+   "kind": "2D",
+   "name": "Cold start timing advance = f(rpm, fuel)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D09C",
+   "kind": "2D",
+   "name": "Altitude timing advance = f(rpm, fuel)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D102",
+   "kind": "2D",
+   "name": "Ceiling for summed timing corrections (16.00)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D3E0",
+   "kind": "2D",
+   "name": "Timing correction = f(rpm, fuel) (0)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D42C",
+   "kind": "2D",
+   "name": "Timing correction = f(rpm, fuel) (0)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D478",
+   "kind": "1D",
+   "name": "Weighting curve (0)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D48C",
+   "kind": "1D",
+   "name": "Weighting curve (0)",
+   "conf": "M",
+   "tasks": "2C544 2C55A",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D720",
+   "kind": "1D",
+   "name": "Post-start glow time = f(coolant)?",
+   "conf": "M",
+   "tasks": "36AAC 36ABE",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D774",
+   "kind": "1D",
+   "name": "Glow time = f(coolant)?",
+   "conf": "M",
+   "tasks": "36AAC 36ABE",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D7A0",
+   "kind": "2D",
+   "name": "Glow = f(voltage?, coolant)?",
+   "conf": "L",
+   "tasks": "36AAC 36ABE",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D7C4",
+   "kind": "2D",
+   "name": "Glow (0)",
+   "conf": "L",
+   "tasks": "36AAC 36ABE",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D7DC",
+   "kind": "2D",
+   "name": "Glow f(T, coolant) (0)",
+   "conf": "L",
+   "tasks": "36AAC 36ABE",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D884",
+   "kind": "2D",
+   "name": "Glow f(rpm, fuel) (0)",
+   "conf": "L",
+   "tasks": "36AAC 36ABE",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D936",
+   "kind": "2D",
+   "name": "rpm × fuel window 0/65.00 → C050",
+   "conf": "L",
+   "tasks": "15ADC",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DA70",
+   "kind": "1D",
+   "name": "Coolant curve (0)",
+   "conf": "L",
+   "tasks": "24012 24028",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DA88",
+   "kind": "1D",
+   "name": "Coolant curve 0…100 % (fan?)",
+   "conf": "L",
+   "tasks": "35112 35124 3513E",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DAE0",
+   "kind": "2D",
+   "name": "Boost deviation monitoring window = f(rpm, fuel)",
+   "conf": "H",
+   "tasks": "1F6B8 1F6D8",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DB48",
+   "kind": "2D",
+   "name": "EGR/air mass monitoring window = f(rpm, fuel) → P0400",
+   "conf": "H",
+   "tasks": "1EBB6 1EBD0",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DBEC",
+   "kind": "2D",
+   "name": "Plausibility window = f(rpm, fuel)",
+   "conf": "L",
+   "tasks": "33294 332A6 332C0",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DC70",
+   "kind": "1D",
+   "name": "Linear scaling f(DC26)",
+   "conf": "L",
+   "tasks": "20000 20004",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DDBA",
+   "kind": "1D",
+   "name": "Substitute temperature f(C004)",
+   "conf": "L",
+   "tasks": "373B4 373C6 373E0",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C3AA",
+   "kind": "scalar",
+   "name": "Boost setpoint ceiling (min(setpoint, this))",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "min": 1800,
+   "max": 2400,
+   "note": "Stock 2100"
+  },
+  {
+   "addr": "0x3C3B4",
+   "kind": "scalar",
+   "name": "Underboost threshold for path 0x1D fault (setpoint − actual)",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "Stock 250"
+  },
+  {
+   "addr": "0x3C3B6",
+   "kind": "scalar",
+   "name": "Overboost threshold for path 0x1D fault (setpoint − actual)",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "Stock −150"
+  },
+  {
+   "addr": "0x3C3B2",
+   "kind": "scalar",
+   "name": "Fixed boost duty in limp mode",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "% duty",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "Stock 30,00 %"
+  },
+  {
+   "addr": "0x3C3F2",
+   "kind": "scalar",
+   "name": "Boost duty: maximum",
+   "conf": "M",
+   "signed": true,
+   "v": {
+    "unit": "% duty",
+    "scale": 100,
+    "offset": 0
+   }
+  },
+  {
+   "addr": "0x3B510",
+   "kind": "scalar",
+   "name": "Fault mask → limp mode (bit 14 = EGR, bit 15 = boost)",
+   "conf": "H",
+   "signed": false,
+   "hex": true,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "Stock DB3F"
+  },
+  {
+   "addr": "0x3A68A",
+   "kind": "scalar",
+   "name": "EGR: mode 9 rpm threshold (valve closed above this rpm)",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "Stock 3600; 0 = EGR always closed"
+  },
+  {
+   "addr": "0x3A698",
+   "kind": "scalar",
+   "name": "EGR: duty in “closed” modes",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "% duty",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "Stock 1,00 %"
+  },
+  {
+   "addr": "0x3A680",
+   "kind": "scalar",
+   "name": "EGR: upper air deviation threshold (P0400 fault)",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "note": "Stock 75 mg"
+  },
+  {
+   "addr": "0x3A682",
+   "kind": "scalar",
+   "name": "EGR: lower air deviation threshold (P0400 fault)",
+   "conf": "H",
+   "signed": true,
+   "v": {
+    "unit": "mg air",
+    "scale": 10,
+    "offset": 0
+   },
+   "note": "Stock −75 mg"
+  },
+  {
+   "addr": "0x3AFEE",
+   "kind": "scalar",
+   "name": "P0400: fault enable flag",
+   "conf": "H",
+   "signed": false,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "1 = on, 0 = off"
+  },
+  {
+   "addr": "0x3B0FE",
+   "kind": "scalar",
+   "name": "Path 0x1D (boost): fault enable flag",
+   "conf": "M",
+   "signed": false,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": "1 = on"
+  }
+ ],
+ "ck": {
+  "family": 1,
+  "start": 232320,
+  "C": 262140,
+  "K3": 34353,
+  "K4": 61389,
+  "iA": 34353,
+  "iB": 61389
+ }
+}

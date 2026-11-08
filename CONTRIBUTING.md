@@ -28,8 +28,8 @@ For each map, give:
 
 ## How to submit
 
-1. Fork the repository.
+1. Fork https://github.com/Blianahui/EDC15M-editor.
 2. Make your changes on a separate branch.
 3. Open a pull request with a short description: what changed and how it was verified.
 
-Questions and findings without code are welcome as issues.
+Questions and findings without code are welcome as [issues](https://github.com/Blianahui/EDC15M-editor/issues).
