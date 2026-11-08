@@ -1,7 +1,6 @@
 """Generic linear sweep of code regions.
 usage: linsweep.py <dump> <base_hex> <regions> <out lin.pkl>
-  regions: comma-separated file-offset ranges, e.g. 10000-38000 (0281001550)
-  or 10000-40000,60000-70000 with base 80000 (EDC15VM+ 084)"""
+  regions: comma-separated file-offset ranges, e.g. 10000-38000 with base 0 (0281001550)"""
 import sys,pickle
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from c166dis import decode

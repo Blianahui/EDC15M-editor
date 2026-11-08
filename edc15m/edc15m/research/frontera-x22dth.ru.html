@@ -1,0 +1,250 @@
+<!doctype html><html lang="ru"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Frontera X22DTH EDC15M</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column of a service datasheet; wide tables and diagrams scroll inside their own frames */
+:root{
+  --bg:#f3f5f6; --panel:#ffffff; --fg:#17212b; --muted:#5b6873; --line:#d6dde2;
+  --accent:#0e6b86; --accent-soft:#d9ecf2; --warn:#a0560a; --warn-soft:#fbead3; --ok:#2d7a3e; --ok-soft:#dcefe0; --bad:#a3282d; --bad-soft:#f7dcdc;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif; --f-body:"IBM Plex Sans",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --heat:14,107,134;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11171c; --panel:#18212834; --fg:#e3e9ee; --muted:#93a1ac; --line:#2b3741;
+  --accent:#5fb7d1; --accent-soft:#163542; --warn:#e6a35a; --warn-soft:#3b2a15; --ok:#7cc48b; --ok-soft:#183121; --bad:#ec8b8f; --bad-soft:#3d1c1e; --heat:95,183,209; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11171c; --panel:#18212834; --fg:#e3e9ee; --muted:#93a1ac; --line:#2b3741;
+  --accent:#5fb7d1; --accent-soft:#163542; --warn:#e6a35a; --warn-soft:#3b2a15; --ok:#7cc48b; --ok-soft:#183121; --bad:#ec8b8f; --bad-soft:#3d1c1e; --heat:95,183,209; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;letter-spacing:.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,6vw,52px);line-height:1}
+h2{font-size:28px;line-height:1.1;display:flex;gap:12px;align-items:baseline}
+h2 .tag{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-weight:400;letter-spacing:0}
+h3{font-size:20px}
+p{margin:0;max-width:68ch}
+code,.mono{font-family:var(--f-mono);font-size:.9em}
+section{display:grid;gap:14px;min-width:0}
+.plate{display:grid;gap:14px;border-bottom:2px solid var(--fg);padding-bottom:20px}
+.plate .ids{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.plate .ids b{color:var(--fg);font-weight:500}
+.lead{font-size:17px;max-width:70ch}
+.callouts{display:grid;gap:10px}
+.fix{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:12px 14px;border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:2px}
+.fix .k{font-family:var(--f-mono);font-size:13px;font-weight:500;white-space:nowrap}
+.fix p{grid-column:2}
+.fix.good{border-color:var(--ok);background:var(--ok-soft)}
+@media (max-width:560px){.fix{grid-template-columns:1fr}.fix p{grid-column:1}}
+.memmap{display:grid;gap:6px}
+.mbar{display:flex;height:34px;border:1px solid var(--line);border-radius:3px;overflow:hidden;font-family:var(--f-mono);font-size:11px}
+.mbar div{display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);white-space:nowrap;overflow:hidden;padding:0 4px}
+.m-rom{background:repeating-linear-gradient(135deg,var(--line) 0 6px,transparent 6px 12px);color:var(--muted)}
+.m-code{background:var(--accent-soft)}
+.m-cal{background:var(--warn-soft)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-display);font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--bg);position:sticky;top:0}
+td.a{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.chain{display:grid;gap:0;border:1px solid var(--line);border-radius:3px;background:var(--panel);overflow:hidden}
+.step{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);position:relative}
+.step:last-child{border-bottom:0}
+.step .who{font-family:var(--f-mono);font-size:12px;color:var(--accent);padding-top:2px}
+.step .what{min-width:0}
+.step .what p{max-width:none}
+.step .out{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:3px}
+@media (max-width:560px){.step{grid-template-columns:1fr;gap:2px}}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:11px;padding:1px 6px;border-radius:9px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
+.pill.H{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.M{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.pill.L{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.mapjump{font-family:var(--f-mono);color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;cursor:pointer;background:none;border:0;padding:0;font-size:inherit}
+.mapjump:focus-visible,.f input:focus-visible,.f select:focus-visible,tr.row:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.f{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.f input,.f select{font:inherit;font-size:14px;padding:6px 10px;border:1px solid var(--line);border-radius:3px;background:var(--panel);color:var(--fg);min-width:0}
+.f input{flex:1 1 240px}
+tr.row{cursor:pointer}
+tr.row:hover td{background:var(--accent-soft)}
+tr.sel td{background:var(--accent-soft)}
+.viewer{border:1px solid var(--line);border-radius:3px;background:var(--panel);padding:14px;display:grid;gap:10px;min-width:0}
+.viewer .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px}
+.grid{overflow-x:auto}
+.grid table{font-family:var(--f-mono);font-size:11.5px;width:auto;font-variant-numeric:tabular-nums}
+.grid td,.grid th{padding:3px 6px;text-align:right;border:1px solid var(--line);position:static}
+.grid th{background:var(--bg);font-family:var(--f-mono);font-size:11px;text-transform:none;letter-spacing:0;color:var(--fg)}
+.grid th.corner{color:var(--muted);text-align:left}
+.note{font-size:13px;color:var(--muted);max-width:75ch}
+ul.plain{margin:0;padding-left:18px;display:grid;gap:4px;max-width:72ch}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:3px;background:var(--panel);padding:12px 14px;display:grid;gap:6px;align-content:start}
+.card h3{font-size:18px}
+@media (prefers-reduced-motion:no-preference){tr.row td{transition:background .12s}}
+</style>
+
+<style>.topnav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px}.topnav a{color:var(--accent)}.topnav .langs a[aria-current]{color:var(--fg);font-weight:600;text-decoration:none}</style>
+<div class="wrap">
+
+<header class="plate">
+  <nav class="topnav"><a href="../index.html">← EDC15M</a><span class="langs"><a href="frontera-x22dth.html">English</a> · <a href="frontera-x22dth.ru.html" aria-current="page">Русский</a></span></nav>
+  <h1>Opel Frontera B X22DTH · EDC15M</h1>
+  <div class="ids"><span>Bosch <b>0281001791</b></span><span>GM <b>90589738</b></span><span>ПО <b>UU2M6S90_S</b></span><span>CPU <b>Siemens B58748 (C167, масочное ПЗУ)</b></span><span>флеш <b>2×AM29F010, 256 КБ</b></span></div>
+  <p class="lead">Разбор стокового дампа по коду. Своим дизассемблером C166 разобрано около 53 тыс. инструкций. Найдено 96 стандартных точек входа задач и 78 дополнительных, 114 обращений к картам и 92 калибровочные карты. Каждая карта привязана к функции, которая её читает, и к переменным, которые идут на её оси. Ниже: как устроена прошивка, цепочки расчёта (подача, наддув, EGR, угол впрыска) и полный список карт с просмотром значений.</p>
+</header>
+
+<section>
+  <h2>Поправки к распространённым определениям</h2>
+  <p class="note">Это то, что меняет Stage 1. Каждый пункт проверен по коду, который читает карту, а не по форме данных.</p>
+  <div class="callouts">
+    <div class="fix"><span class="k">0x3C3AA = 2100</span><p><b>Уставка наддува обрезается константой 2100 мбар.</b> После всех поправок задача 0x160C4 берёт min(уставка, [0x3C3AA]). Если поднять только карту наддува 0x3C496, выше 2100 уставка не пройдёт, пока не поднять эту константу. Рядом проверка отклонения: недодув больше +250 мбар или передув больше −150 мбар (параметры 0x3C3B4/0x3C3B6) даёт ошибку пути 0x1D.</p></div>
+    <div class="fix"><span class="k">0x3A308</span><p><b>Это уставка EGR по массе воздуха, а не угол впрыска.</b> Titanium называет её «Phase of injection», но код говорит другое. Результат карты (C2E4) читает только задача 0x1EBB6. Она сравнивает его с массой воздуха с ДМРВ (C216) PI-регулятором, переворачивает выход кривой 100 %−x и при отклонении ставит ошибку пути 0x1E, а это P0400 (флаг 0x3AFEE). Участок 0x3A440–0x3A4D2 видимый код не читает: что там лежит, неизвестно, писать туда нельзя.</p></div>
+    <div class="fix"><span class="k">0x3CD30</span><p><b>Это не ограничитель наддува.</b> Карта (обороты × подача, 20,3…33,2) входит в расчёт C214 → C252. Это значение уходит по CAN в ТНВД VP44 вместе с подачей. Значит, это запрос угла начала подачи. Как ограничитель наддува её не трогать.</p></div>
+    <div class="fix"><span class="k">0x3C8A2</span><p><b>Это не ограничитель подачи.</b> Это пилотная скважность клапана наддува (обороты × подача, до 65,00 %). Она складывается с PI-регулятором давления в задаче 0x1F6B8.</p></div>
+    <div class="fix good"><span class="k">0x3BB40 / 0x3BA70</span><p><b>Рабочие ограничители: «Injection at part throttle» и «Torque limiter 2».</b> Копии 0x3B55A («Injection ext») и 0x3B8EA («Torque limiter 1») подмешиваются только с коэффициентом из кривой 0x3B926. В стоке она вся нулевая, так что на подачу эти копии не влияют. Править нужно рабочую пару.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Память <span class="tag">файл = линейный адрес C167</span></h2>
+  <div class="memmap">
+    <div class="mbar" role="img" aria-label="Карта памяти">
+      <div class="m-rom" style="flex:0 0 13.5%">ПЗУ CPU</div>
+      <div class="m-code" style="flex:0 0 11.5%">код 08AA6</div>
+      <div class="m-code" style="flex:1 1 auto">код приложения 10000–37FFF</div>
+      <div class="m-cal" style="flex:0 0 12.5%">калибровка</div>
+    </div>
+  </div>
+  <div class="tbl"><table>
+    <tr><th>Адреса</th><th>Что там</th></tr>
+    <tr><td class="a">00000–08AA5</td><td>Заполнено C3. На этих адресах процессор видит своё масочное ПЗУ: загрузчик, векторы прерываний, планировщик задач, синхронизацию по коленвалу, проверку иммобилайзера и библиотеку. Из кода туда 833 вызова, 96 разных адресов. Интерполяция карт: <code>00:20D6</code> (2D) и <code>00:20AC</code> (1D).</td></tr>
+    <tr><td class="a">08AA6–0FFFF</td><td>Код. Участок 0C000–0FFFF процессор вызывает через зеркало сегмента 7 (<code>07:Cxxx</code>), потому что на этих адресах сегмента 0 у C167 лежат XRAM/SFR.</td></tr>
+    <tr><td class="a">10000–37FFF</td><td>Код приложения. <code>55 AA</code> на 10800, старт на 10804. Диспетчер команд диагностики на 17290 (81 обработчик <code>jmpa</code> на 1729C).</td></tr>
+    <tr><td class="a">38000–3FFFF</td><td>Калибровка, через DPP0=0E и DPP1=0F. Карты, параметры, таблицы указателей на карты (38DD0–391D8), таблица ошибок (3AA3E–3B3B8 и 3DA0E–3DE3E), стеки кадров задач (38030–38042).</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Как работает код</h2>
+  <div class="two">
+    <div class="card"><h3>Задачи</h3><p>Все расчёты разбиты на задачи, которые вызывает планировщик из ПЗУ. 96 задач начинаются стандартным прологом <code>mov r0,[0040h]; sub r0,#кадр; mov [r0],[FD86h]</code>, то есть выделяют кадр в своём стеке (вершины стеков лежат по 0x3803C–0x38042). Ещё 78 точек входа начинаются сразу с проверки <code>cmp r0,[FD86h]</code>. Выход из задачи идёт через <code>jmps 00:07B4</code>, переполнение стека через <code>00:0276</code>. Таблица порядка задач лежит в ПЗУ, поэтому частоту и порядок вызова по дампу не восстановить.</p></div>
+    <div class="card"><h3>Шаблон задачи</h3><p>Сначала задача копирует нужные глобальные переменные в свою рабочую область (<code>C0FA–C126</code>, <code>FC66–FC6A</code>), считает, а результат пишет в одну-две глобальные переменные. Промежуточные значения задача дублирует в переменные мониторинга <code>DCxx–DExx</code>. Именно их адреса стоят в заголовках карт как «ID оси», поэтому в карте наддува Y = <code>DD94</code> = C1EC + C1D0.</p></div>
+    <div class="card"><h3>Карты</h3><p>Заголовок: <code>[ID X][nx][X…][ID Y][ny][Y…][данные]</code>. Данные лежат построчно по X: индекс = x·ny + y. Код берёт адрес карты не напрямую, а из таблицы указателей. Пример: <code>mov r12,[100Ch]</code> читает 0x3900C → 0x446E → карта 0x3C46E. Затем <code>r13</code>=X, <code>r14</code>=Y и <code>calls 00:20D6</code>, результат в r4.</p></div>
+    <div class="card"><h3>Ошибки</h3><p>Все ошибки регистрирует <code>calls 01:4002</code>: r2 = (путь&lt;&lt;8) | ~бит, r1 = указатель на 8-байтовую запись дебаунса. У каждого пути есть заголовок с P-кодом и флагом включения. Например, путь 0x1E: P0400, флаг 0x3AFEE.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Цикловая подача <span class="tag">педаль → ограничители → VP44</span></h2>
+  <div class="chain">
+    <div class="step"><div class="who">0x25F98</div><div class="what"><p>Педаль: АЦП → <code>C1CC</code> (0,01 %). Запрос водителя <button class="mapjump" data-map="39886">0x39886</button> = f(обороты, педаль).</p><div class="out">→ C1CE запрос водителя</div></div></div>
+    <div class="step"><div class="who">0x257E4</div><div class="what"><p>Пусковая подача <button class="mapjump" data-map="3B418">0x3B418</button> = f(обороты, ОЖ).</p><div class="out">→ C1CA</div></div></div>
+    <div class="step"><div class="who">0x220EC<br>0x22240</div><div class="what"><p>Максимальная подача. Если масса воздуха достоверна (признак <code>C0D2</code> ≥ 30h), берётся дымовой ограничитель <button class="mapjump" data-map="3BB14">0x3BB14</button> по оборотам и массе воздуха <code>C216</code>. Если нет, вместо него постоянные 60 мг (<button class="mapjump" data-map="3BC22">0x3BC22</button>). Из результата вычитается поправка по температуре <button class="mapjump" data-map="3BE90">0x3BE90</button>, потом ограничивается скорость роста. Берётся меньшее из этого и ограничителя момента <button class="mapjump" data-map="3BA44">0x3BA44</button> (в аварийном режиме вместо него <button class="mapjump" data-map="3BAAC">0x3BAAC</button>, 30 мг). Добавка из копий <button class="mapjump" data-map="3B52E">0x3B52E</button>/<button class="mapjump" data-map="3B8BE">0x3B8BE</button> умножается на коэффициент <button class="mapjump" data-map="3B926">0x3B926</button>, который равен 0. Дальше: умножение на коэффициент <code>C1D6</code>, плюс поправка по ОЖ <button class="mapjump" data-map="3B966">0x3B966</button>, снижение при перегреве по <button class="mapjump" data-map="3BC3A">0x3BC3A</button> и <button class="mapjump" data-map="3BCB0">0x3BCB0</button>, аварийные кривые <button class="mapjump" data-map="3BD80">0x3BD80</button>/<button class="mapjump" data-map="3BDE8">0x3BDE8</button>.</p><div class="out">→ C2BE предел подачи</div></div></div>
+    <div class="step"><div class="who">0x2327C</div><div class="what"><p>Координатор. Сводит запрос водителя, холостой ход (по значениям 800–1100 карта <button class="mapjump" data-map="3C21C">0x3C21C</button> похожа на уставку оборотов ХХ; путь 0x355B6 → 0x24C98 → <code>C1F4</code>) и, похоже, моментную модель: подача→момент <button class="mapjump" data-map="395BA">0x395BA</button>, трение <button class="mapjump" data-map="39662">0x39662</button>, обратный пересчёт <button class="mapjump" data-map="396D4">0x396D4</button>. Читает предел C2BE.</p><div class="out">→ C1EC желаемая подача (её же видят наддув и EGR)</div></div></div>
+    <div class="step"><div class="who">0x34A34<br>0x18052</div><div class="what"><p>Добавка <code>C1D0</code> (по коду похоже на гаситель рывков, не проверено) и итоговая подача.</p><div class="out">→ FC36 фактическая подача (ось почти всех карт), C2C4</div></div></div>
+    <div class="step"><div class="who">0x14B56<br>0x12F8C</div><div class="what"><p>Обмен с блоком ТНВД (PSG) по CAN через процедуры ПЗУ <code>7CD8</code>/<code>7D30</code>. Туда уходят подача <code>C1D2</code>, <code>C250</code>, <code>C252</code> (угол) и <code>C254</code>. Обратно приходят 4 слова в <code>C246–C24C</code>. Ещё одно значение пишется в <code>C242</code>; по оси карты 0x3CDF8 это температура, вероятно топлива в ТНВД.</p><div class="out">→ VP44</div></div></div>
+  </div>
+  <p class="note">Единицы подачи (0,01 мг/такт) сходятся со всеми картами и с осью наддува, но в коде нет константы, которая бы их доказывала. Роли 0x2327C, 0x34A34 и 0x18052 определены по входам и выходам, построчно эти задачи не разобраны.</p>
+</section>
+
+<section>
+  <h2>Наддув</h2>
+  <div class="chain">
+    <div class="step"><div class="who">0x1F2AC</div><div class="what"><p>Датчик давления наддува и атмосферного давления.</p><div class="out">→ C220 факт (мбар абс.), C21E атм. давление</div></div></div>
+    <div class="step"><div class="who">0x160C4</div><div class="what"><p>y = C1EC + C1D0. База <button class="mapjump" data-map="3C46E">0x3C46E</button>(обороты, y). На высоте к ней прибавляется <button class="mapjump" data-map="3C524">0x3C524</button>(обороты, y) с весом <button class="mapjump" data-map="3C5A8">0x3C5A8</button>(атм.): вес 100 % при 750 мбар и ниже, 0 % от 950 мбар. Потом коэффициент по температуре <button class="mapjump" data-map="3C79C">0x3C79C</button>, динамическая добавка через ПЗУ <code>22F2</code>, добавка <button class="mapjump" data-map="3C5D4">0x3C5D4</button> (нули). Результат ограничивается: не ниже 0 и <b>не выше [0x3C3AA] = 2100</b>.</p><div class="out">→ C224 уставка наддува</div></div></div>
+    <div class="step"><div class="who">0x1F6B8</div><div class="what"><p>Регулятор. Ошибка = C224 − C220, на неё P-звено (ПЗУ <code>21A2</code>) и I-звено (<code>21C4</code>). К ним прибавляется пилот <button class="mapjump" data-map="3C876">0x3C876</button>(обороты, y), результат ограничивается 0…65,00 % (0x3C3F2/0x3C3F6). Контроль отклонения работает только в окне <button class="mapjump" data-map="3DAE0">0x3DAE0</button> и при допустимых температурах и давлении: недодув больше 250 мбар даёт бит 4 пути 0x1D, передув больше 150 мбар даёт бит 5.</p><div class="out">→ скважность клапана наддува</div></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>EGR <span class="tag">замкнутый контур по массе воздуха</span></h2>
+  <div class="chain">
+    <div class="step"><div class="who">0x15C84</div><div class="what"><p>ДМРВ: два отсчёта АЦП (<code>C00C</code>, <code>C00E</code>) → характеристика <button class="mapjump" data-map="3A75C">0x3A75C</button> → среднее → деление на обороты → поправка <button class="mapjump" data-map="3A744">0x3A744</button>. Проверка правдоподобия даёт путь 0x0B (P0100).</p><div class="out">→ C216 масса воздуха, 0,1 мг/такт</div></div></div>
+    <div class="step"><div class="who">0x1E772</div><div class="what"><p>Уставка: <button class="mapjump" data-map="3A2CE">0x3A2CE</button>(обороты, C1EC+C1D0), плюс поправки по атм. давлению <button class="mapjump" data-map="3A4D4">0x3A4D4</button>, по температуре <button class="mapjump" data-map="3A528">0x3A528</button> и по ОЖ <button class="mapjump" data-map="3A5D0">0x3A5D0</button> (на холодном моторе до +545 мг, то есть EGR закрыт). Ещё есть поправка по отклонению наддува (<button class="mapjump" data-map="3A7D0">0x3A7D0</button>, в стоке нули). Ограничения берутся из блока 0x3A2A0.</p><div class="out">→ C2E4 уставка массы воздуха</div></div></div>
+    <div class="step"><div class="who">0x1EBB6</div><div class="what"><p>PI-регулятор ПЗУ <code>2430</code> (параметры 0x3A6AC, 0x3A6B6, 0x3A6C0) по ошибке C2E4 − C216. Выход переворачивается кривой <button class="mapjump" data-map="3A7C4">0x3A7C4</button> (100 % − x). Режимы <code>C9D8</code> подставляют фиксированную скважность из блока 0x3A68A: низкие обороты, большая подача, холодный мотор, ошибки датчиков. Контроль отклонения работает в окне <button class="mapjump" data-map="3DB48">0x3DB48</button>, это путь 0x1E (P0400).</p><div class="out">→ скважность клапана EGR</div></div></div>
+  </div>
+  <p class="note">Как держать клапан закрытым программно, описано в <code>docs/frontera-x22dth/tuning-notes.md</code>. Физическая заглушка, где её можно поставить, надёжнее всего.</p>
+</section>
+
+<section>
+  <h2>Угол начала подачи <span class="tag">в VP44 по CAN</span></h2>
+  <div class="chain">
+    <div class="step"><div class="who">0x2C544</div><div class="what"><p>Холодный старт: <button class="mapjump" data-map="3CFA4">0x3CFA4</button>(обороты, подача) × вес по ОЖ <button class="mapjump" data-map="3CEFC">0x3CEFC</button>. Высота: <button class="mapjump" data-map="3D09C">0x3D09C</button> × вес по атм. давлению <button class="mapjump" data-map="3CF50">0x3CF50</button>. Сумма ограничивается <button class="mapjump" data-map="3D102">0x3D102</button> (16,00), потом прибавляется ограниченный <code>C210</code>.</p><div class="out">→ C20E поправка угла</div></div></div>
+    <div class="step"><div class="who">0x1854C</div><div class="what"><p>База <button class="mapjump" data-map="3CD00">0x3CD00</button>(обороты, подача), плюс поправка по температуре <button class="mapjump" data-map="3CDF8">0x3CDF8</button>(обороты, C242), плюс <button class="mapjump" data-map="3CC08">0x3CC08</button>, C20E и смещение 0x3CB4E. Потом ограничение через ПЗУ <code>2756</code>. Второй канал (<button class="mapjump" data-map="3CB54">0x3CB54</button>, <button class="mapjump" data-map="3CBA2">0x3CBA2</button>) в стоке нулевой.</p><div class="out">→ C214 → C252 и C212 → C250, дальше в 0x12F8C → ТНВД</div></div></div>
+  </div>
+  <p class="note">Роль подтверждена: значение уходит в пакет для ТНВД рядом с подачей. Единицы не подтверждены. 20,3…33,2 похоже на градусы × 100, но сам ТНВД может пересчитывать по-своему. Для Stage 1 этот угол лучше не трогать.</p>
+</section>
+
+<section>
+  <h2>Все карты <span class="tag" id="mapcount"></span></h2>
+  <p class="note">Карты, которые код реально читает через MAP2D/CURVE1D. «Уверенность» показывает, насколько надёжна подпись: H — роль видна по коду и значениям, M — по входам и выходам, L — догадка. Нажмите на строку, чтобы увидеть описание карты. Названия Titanium указаны в скобках.</p>
+  <div class="f">
+    <label for="q" class="note">Поиск</label><input id="q" type="search" placeholder="адрес, роль, задача… например 3BB, EGR, 160C4">
+    <select id="cf" aria-label="Уверенность"><option value="">любая уверенность</option><option>H</option><option>M</option><option>L</option></select>
+  </div>
+  <div class="viewer" id="viewer"></div>
+  <div class="tbl" style="max-height:520px"><table id="maptbl"><thead><tr><th>Заголовок</th><th>Данные</th><th>Размер</th><th>Роль</th><th>Ув.</th><th>Задача</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section>
+  <h2>Ошибки, связанные с цепочками</h2>
+  <div class="tbl"><table>
+    <tr><th>Путь</th><th>P-код в таблице</th><th>Флаг вкл.</th><th>Кто ставит</th><th>Что контролирует</th></tr>
+    <tr><td class="a">0x1E</td><td class="a">P0400</td><td class="a">0x3AFEE = 1</td><td class="a">0x1EBB6</td><td>Отклонение массы воздуха в контуре EGR (биты 4/5: выше/ниже)</td></tr>
+    <tr><td class="a">0x1D</td><td class="a">P1125</td><td class="a">0x3B0FE = 1</td><td class="a">0x1F6B8</td><td>Отклонение наддува: недодув (бит 4), передув (бит 5)</td></tr>
+    <tr><td class="a">0x0B</td><td class="a">P0100</td><td class="a">0x3AE96 = 1</td><td class="a">0x15C84 и др.</td><td>ДМРВ</td></tr>
+    <tr><td class="a">0x09</td><td class="a">P0105</td><td class="a">0x3AE2E = 1</td><td class="a">0x1F2AC и др.</td><td>Датчик давления</td></tr>
+    <tr><td class="a">0x05</td><td class="a">P0115</td><td class="a">0x3AD1E = 1</td><td class="a">0x1C55A и др.</td><td>Датчик ОЖ</td></tr>
+    <tr><td class="a">0x3D</td><td class="a">—</td><td class="a">—</td><td class="a">0x22240</td><td>Проверки внутри ограничителя подачи</td></tr>
+  </table></div>
+  <p class="note">P-коды прочитаны из заголовков путей в калибровке. Путь 0x1E → P0400 → 0x3AFEE подтверждён на практике. Остальные соответствия построены так же, но по отдельности не проверены. Для некоторых путей (0x12/0x13, 0x24/0x25, 0x38–0x3D) заголовок определился неоднозначно.</p>
+</section>
+
+<section>
+  <h2>Чего в дампе нет</h2>
+  <ul class="plain">
+    <li>Планировщика и порядка задач. Поэтому задачи перечислены по точкам входа, без таблицы с частотой вызова.</li>
+    <li>Прерываний: синхронизации по коленвалу, расчёта оборотов, приёма CAN на нижнем уровне. В видимом коде нет ни одного <code>reti</code>.</li>
+    <li>Внутренностей процедур ПЗУ. Интерполяция, PI-регуляторы, фильтры и регистрация ошибок видны только по аргументам и результатам.</li>
+    <li>Проверки иммобилайзера: она тоже в ПЗУ.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+const MAPS=[{"h":"391DA","d":"391E2","k":"1D","nx":2,"ny":1,"n":"Кривая f(DC5C)","c":"L","t":"2327C 2329C","xv":"DC5C","yv":""},{"h":"39512","d":"3953A","k":"2D","nx":8,"ny":8,"n":"Регулятор ХХ / моментная карта = f(обороты, E23C)","c":"L","t":"2327C 2329C","xv":"E08A","yv":"E23C"},{"h":"395BA","d":"395E2","k":"2D","nx":8,"ny":8,"n":"Похоже: подача → момент = f(обороты, подача)","c":"M","t":"2327C 2329C","xv":"E08A","yv":"E238"},{"h":"39662","d":"39684","k":"2D","nx":8,"ny":5,"n":"Похоже: момент трения = f(обороты, ОЖ)","c":"M","t":"2327C 2329C","xv":"E08A","yv":"C002"},{"h":"396D4","d":"39706","k":"2D","nx":13,"ny":8,"n":"Похоже: пересчёт момент ↔ подача","c":"L","t":"2327C 2329C","xv":"E08A","yv":"E240"},{"h":"397F0","d":"397FE","k":"1D","nx":5,"ny":1,"n":"Кривая f(C206) (2,50)","c":"L","t":"2327C 2329C","xv":"C206","yv":""},{"h":"39808","d":"39816","k":"1D","nx":5,"ny":1,"n":"Кривая f(DC98) (1,0)","c":"L","t":"2327C 2329C","xv":"DC98","yv":""},{"h":"39886","d":"398B8","k":"2D","nx":13,"ny":8,"n":"Запрос водителя: подача = f(обороты, педаль %)  [Titanium: Fuel during acceleration]","c":"H","t":"25F98 25FB6 2605C 2615C 26192 261C2 26352 2637E 263AA","xv":"E08A","yv":"C1CC"},{"h":"39C94","d":"39C9C","k":"1D","nx":2,"ny":1,"n":"Кривая-константа 5100 об/мин","c":"L","t":"26B90 26BA6","xv":"E08A","yv":""},{"h":"39F6C","d":"39F7A","k":"1D","nx":5,"ny":1,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":""},{"h":"39F84","d":"39F92","k":"1D","nx":5,"ny":1,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":""},{"h":"39F9C","d":"39FAA","k":"1D","nx":5,"ny":1,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":""},{"h":"39FB4","d":"39FC2","k":"1D","nx":5,"ny":1,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":""},{"h":"39FCC","d":"39FDA","k":"1D","nx":5,"ny":1,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":""},{"h":"39FE4","d":"39FF2","k":"1D","nx":5,"ny":1,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":""},{"h":"39FFC","d":"3A018","k":"2D","nx":5,"ny":5,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":"DCC2"},{"h":"3A04A","d":"3A066","k":"2D","nx":5,"ny":5,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":"DCC2"},{"h":"3A098","d":"3A0B4","k":"2D","nx":5,"ny":5,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":"DCC2"},{"h":"3A0E6","d":"3A102","k":"2D","nx":5,"ny":5,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":"DCC2"},{"h":"3A134","d":"3A150","k":"2D","nx":5,"ny":5,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":"DCC2"},{"h":"3A182","d":"3A19E","k":"2D","nx":5,"ny":5,"n":"","c":"M","t":"26B90 26BA6","xv":"DCC0","yv":"DCC2"},{"h":"3A2CE","d":"3A308","k":"2D","nx":13,"ny":12,"n":"Уставка EGR по массе воздуха = f(обороты, подача), 0,1 мг/такт  [Titanium: Phase of injection — подпись неверна]","c":"H","t":"1E772 1E78A","xv":"E08A","yv":"DD40"},{"h":"3A4D4","d":"3A4E0","k":"1D","nx":4,"ny":1,"n":"Поправка уставки EGR по атм. давлению","c":"H","t":"1E772 1E78A","xv":"C21E","yv":""},{"h":"3A528","d":"3A538","k":"2D","nx":2,"ny":2,"n":"Коэффициент уставки EGR = f(обороты, температура)","c":"M","t":"1E772 1E78A","xv":"E08A","yv":"C004"},{"h":"3A5D0","d":"3A5F2","k":"2D","nx":5,"ny":8,"n":"Добавка к уставке EGR = f(обороты, ОЖ): на холодном EGR закрыт","c":"H","t":"1E772 1E78A","xv":"E08A","yv":"C002"},{"h":"3A6C4","d":"3A6D4","k":"2D","nx":2,"ny":2,"n":"Замещающее значение массы воздуха","c":"L","t":"15C84","xv":"C220","yv":"C21E"},{"h":"3A6DC","d":"3A6FC","k":"2D","nx":6,"ny":6,"n":"Замещающее значение массы воздуха 2","c":"L","t":"15C84","xv":"DD54","yv":"DD52"},{"h":"3A744","d":"3A754","k":"2D","nx":2,"ny":2,"n":"Поправка ДМРВ = f(T, атм.) (1,0)","c":"M","t":"15C84","xv":"C004","yv":"C21E"},{"h":"3A75C","d":"3A778","k":"1D","nx":12,"ny":1,"n":"Характеристика ДМРВ (сырое → расход)","c":"H","t":"15C84","xv":"DD50","yv":""},{"h":"3A7C4","d":"3A7CC","k":"1D","nx":2,"ny":1,"n":"Переворот скважности EGR: 100 % − x","c":"H","t":"1EBB6 1EBD0","xv":"DD5A","yv":""},{"h":"3A7D0","d":"3A7EC","k":"2D","nx":6,"ny":4,"n":"Вес отклонения наддува для EGR (0)","c":"M","t":"1E772 1E78A","xv":"FC3A","yv":"DD40"},{"h":"3A81C","d":"3A844","k":"2D","nx":9,"ny":7,"n":"Опорный наддув для EGR (0)","c":"M","t":"1E772 1E78A","xv":"FC3A","yv":"FC36"},{"h":"3A8C2","d":"3A8CE","k":"1D","nx":4,"ny":1,"n":"Кривая по отклонению наддува для EGR (0)","c":"M","t":"1E772 1E78A","xv":"DE14","yv":""},{"h":"3B3EC","d":"3B404","k":"1D","nx":10,"ny":1,"n":"Связано с пуском = f(ОЖ)","c":"L","t":"2574A 25B8A","xv":"C002","yv":""},{"h":"3B418","d":"3B442","k":"2D","nx":8,"ny":9,"n":"Пусковая подача = f(обороты, ОЖ)","c":"M","t":"257E4 257FC","xv":"E08A","yv":"C002"},{"h":"3B4D2","d":"3B4DA","k":"1D","nx":2,"ny":1,"n":"Связано с пуском = f(ОЖ)","c":"L","t":"257E4 257FC","xv":"C002","yv":""},{"h":"3B52E","d":"3B55A","k":"2D","nx":10,"ny":8,"n":"Дымовой ограничитель «ext» = f(обороты, воздух), подмешивается с коэф. 0x3B926 (=0)  [Titanium: Injection ext]","c":"H","t":"22240 22260","xv":"E08A","yv":"C216"},{"h":"3B6F6","d":"3B706","k":"2D","nx":2,"ny":2,"n":"Замена ext-ограничителя при недостоверном ДМРВ (0)","c":"M","t":"22240 22260","xv":"E08A","yv":"C218"},{"h":"3B8BE","d":"3B8EA","k":"1D","nx":20,"ny":1,"n":"Ограничитель момента «ext», подмешивается с коэф. 0x3B926 (=0)  [Titanium: Torque limiter 1]","c":"H","t":"22240 22260","xv":"E08A","yv":""},{"h":"3B926","d":"3B948","k":"1D","nx":15,"ny":1,"n":"Коэффициент подмешивания ext-ограничителей = f(C118), в стоке все 0","c":"H","t":"22240 22260","xv":"C2E0","yv":""},{"h":"3B966","d":"3B992","k":"2D","nx":8,"ny":10,"n":"Поправка предела подачи = f(обороты, ОЖ)","c":"M","t":"22240 22260","xv":"E08A","yv":"C002"},{"h":"3BA44","d":"3BA70","k":"1D","nx":20,"ny":1,"n":"Ограничитель момента (подача по оборотам), РАБОЧАЯ копия  [Titanium: Torque limiter 2]","c":"H","t":"22240 22260","xv":"E08A","yv":""},{"h":"3BAAC","d":"3BAB8","k":"1D","nx":4,"ny":1,"n":"Аварийный ограничитель момента (30 мг): неисправность педали/датчиков","c":"H","t":"22240 22260","xv":"E08A","yv":""},{"h":"3BB14","d":"3BB40","k":"2D","nx":10,"ny":8,"n":"Дымовой ограничитель = f(обороты, масса воздуха), РАБОЧАЯ копия  [Titanium: Injection at part throttle]","c":"H","t":"220EC 22240 22260","xv":"E08A","yv":"C216"},{"h":"3BC22","d":"3BC32","k":"2D","nx":2,"ny":2,"n":"Замена дымового ограничителя при недостоверном ДМРВ (60 мг)","c":"H","t":"220EC 22240 22260","xv":"E08A","yv":"C218"},{"h":"3BC3A","d":"3BC5A","k":"2D","nx":6,"ny":6,"n":"Снижение подачи при перегреве = f(ОЖ+смещение, C2B0)","c":"M","t":"22240 22260","xv":"DCA6","yv":"C2B0"},{"h":"3BCB0","d":"3BCD0","k":"2D","nx":6,"ny":6,"n":"Снижение подачи при перегреве = f(температура C006, C2B0)","c":"M","t":"22240 22260","xv":"C006","yv":"C2B0"},{"h":"3BD80","d":"3BD92","k":"1D","nx":7,"ny":1,"n":"Аварийный потолок подачи = f(обороты), набор 1","c":"M","t":"22240 22260","xv":"E08A","yv":""},{"h":"3BDE8","d":"3BDFA","k":"1D","nx":7,"ny":1,"n":"Аварийный потолок подачи = f(обороты), набор 2","c":"M","t":"22240 22260","xv":"E08A","yv":""},{"h":"3BE50","d":"3BE58","k":"1D","nx":2,"ny":1,"n":"Смещение по атм. давлению для защиты от перегрева (0)","c":"M","t":"22240 22260","xv":"C21E","yv":""},{"h":"3BE90","d":"3BEA8","k":"2D","nx":4,"ny":4,"n":"Снижение подачи = f(обороты, подача) × (C242 − порог)/4096 (по температуре)","c":"M","t":"22240 22260","xv":"E08A","yv":"FC36"},{"h":"3C21C","d":"3C238","k":"2D","nx":5,"ny":5,"n":"Похоже на уставку оборотов ХХ = f(ОЖ, температура воздуха)","c":"M","t":"35516 355B6","xv":"C002","yv":"C004"},{"h":"3C292","d":"3C29E","k":"1D","nx":4,"ny":1,"n":"Поправка уставки ХХ = f(C01A)","c":"M","t":"355B6","xv":"C01A","yv":""},{"h":"3C2A6","d":"3C2B8","k":"1D","nx":7,"ny":1,"n":"Кривая по ОЖ 40,8…8,0 (ХХ/пуск?)","c":"L","t":"24C98 24CB8","xv":"C002","yv":""},{"h":"3C2FA","d":"3C308","k":"1D","nx":5,"ny":1,"n":"Связано с ХХ = f(E034) (0)","c":"L","t":"355B6","xv":"E034","yv":""},{"h":"3C3FC","d":"3C41E","k":"2D","nx":8,"ny":5,"n":"Связано с давлением наддува = f(обороты, DDC4)","c":"L","t":"1F2AC 1F2C6","xv":"E08A","yv":"DDC4"},{"h":"3C46E","d":"3C496","k":"2D","nx":9,"ny":7,"n":"Уставка наддува, база = f(обороты, подача)  [Titanium: Turbo pressure]","c":"H","t":"160C4 160E4","xv":"E08A","yv":"DD94"},{"h":"3C524","d":"3C548","k":"2D","nx":8,"ny":6,"n":"Снижение уставки наддува на высоте = f(обороты, подача)","c":"H","t":"160C4 160E4","xv":"FC3A","yv":"DD94"},{"h":"3C5A8","d":"3C5C0","k":"1D","nx":10,"ny":1,"n":"Вес 0x3C524 = f(атм. давление)","c":"H","t":"160C4 160E4","xv":"C21E","yv":""},{"h":"3C5D4","d":"3C614","k":"2D","nx":14,"ny":14,"n":"Добавка к наддуву = f(обороты, атм.) × C1D8 (нули)","c":"M","t":"160C4 160E4","xv":"E08A","yv":"C21E"},{"h":"3C79C","d":"3C7A4","k":"1D","nx":2,"ny":1,"n":"Коэффициент уставки наддува = f(температура) (1,0)","c":"M","t":"160C4 160E4","xv":"C004","yv":""},{"h":"3C7E0","d":"3C806","k":"2D","nx":8,"ny":7,"n":"Ограничение/линеаризация скважности наддува","c":"M","t":"1F6B8 1F6D8","xv":"E08A","yv":"DD98"},{"h":"3C876","d":"3C8A2","k":"2D","nx":10,"ny":8,"n":"Пилотная скважность клапана наддува = f(обороты, подача), 0,01 %","c":"H","t":"1F6B8 1F6D8","xv":"E08A","yv":"DDAA"},{"h":"3CB54","d":"3CB64","k":"2D","nx":2,"ny":2,"n":"Угол, канал 2 = f(обороты, подача) (0)","c":"M","t":"1854C 1856A","xv":"E08A","yv":"FC36"},{"h":"3CBA2","d":"3CBB2","k":"2D","nx":2,"ny":2,"n":"Угол, канал 2, часть = f(обороты, подача) (0)","c":"M","t":"1854C 1856A","xv":"E08A","yv":"FC36"},{"h":"3CBF0","d":"3CBFE","k":"1D","nx":5,"ny":1,"n":"Вес 0x3CBA2 = f(ОЖ) (0)","c":"M","t":"1854C 1856A","xv":"C002","yv":""},{"h":"3CC08","d":"3CC34","k":"2D","nx":10,"ny":8,"n":"Добавка к углу = f(обороты, канал 2) (0)","c":"M","t":"1854C 1856A","xv":"E08A","yv":"C212"},{"h":"3CD00","d":"3CD30","k":"2D","nx":10,"ny":10,"n":"Запрос угла начала подачи в VP44 = f(обороты, подача)","c":"H","t":"1854C 1856A","xv":"E08A","yv":"FC36"},{"h":"3CDF8","d":"3CE28","k":"2D","nx":10,"ny":10,"n":"Поправка угла = f(обороты, температура C242)","c":"M","t":"1854C 1856A","xv":"E08A","yv":"C242"},{"h":"3CEFC","d":"3CF12","k":"1D","nx":9,"ny":1,"n":"Вес 0x3CFA4 = f(ОЖ)","c":"M","t":"2C544 2C55A","xv":"C20C","yv":""},{"h":"3CF50","d":"3CF58","k":"1D","nx":2,"ny":1,"n":"Вес 0x3D09C = f(атм. давление)","c":"M","t":"2C544 2C55A","xv":"C21E","yv":""},{"h":"3CFA4","d":"3CFD4","k":"2D","nx":10,"ny":10,"n":"Опережение при холодном пуске = f(обороты, подача)","c":"M","t":"2C544 2C55A","xv":"E08A","yv":"FC36"},{"h":"3D09C","d":"3D0BA","k":"2D","nx":4,"ny":7,"n":"Опережение на высоте = f(обороты, подача)","c":"M","t":"2C544 2C55A","xv":"E08A","yv":"FC36"},{"h":"3D102","d":"3D112","k":"2D","nx":2,"ny":2,"n":"Потолок суммы поправок угла (16,00)","c":"M","t":"2C544 2C55A","xv":"E08A","yv":"C20C"},{"h":"3D3E0","d":"3D3FC","k":"2D","nx":6,"ny":4,"n":"Поправка угла = f(обороты, подача) (0)","c":"M","t":"2C544 2C55A","xv":"FC3A","yv":"FC36"},{"h":"3D42C","d":"3D448","k":"2D","nx":6,"ny":4,"n":"Поправка угла = f(обороты, подача) (0)","c":"M","t":"2C544 2C55A","xv":"FC3A","yv":"C1EC"},{"h":"3D478","d":"3D484","k":"1D","nx":4,"ny":1,"n":"Весовая кривая (0)","c":"M","t":"2C544 2C55A","xv":"DE30","yv":""},{"h":"3D48C","d":"3D498","k":"1D","nx":4,"ny":1,"n":"Весовая кривая (0)","c":"M","t":"2C544 2C55A","xv":"DE3A","yv":""},{"h":"3D720","d":"3D72C","k":"1D","nx":4,"ny":1,"n":"Время послепускового накала = f(ОЖ)?","c":"M","t":"36AAC 36ABE","xv":"C002","yv":""},{"h":"3D774","d":"3D78C","k":"1D","nx":10,"ny":1,"n":"Время накала = f(ОЖ)?","c":"M","t":"36AAC 36ABE","xv":"C002","yv":""},{"h":"3D7A0","d":"3D7B4","k":"2D","nx":2,"ny":4,"n":"Накал = f(напряжение?, ОЖ)?","c":"L","t":"36AAC 36ABE","xv":"C01A","yv":"C002"},{"h":"3D7C4","d":"3D7D4","k":"2D","nx":2,"ny":2,"n":"Накал (0)","c":"L","t":"36AAC 36ABE","xv":"E08A","yv":"FC36"},{"h":"3D7DC","d":"3D804","k":"2D","nx":8,"ny":8,"n":"Накал f(T, ОЖ) (0)","c":"L","t":"36AAC 36ABE","xv":"C004","yv":"C002"},{"h":"3D884","d":"3D8AC","k":"2D","nx":8,"ny":8,"n":"Накал f(обороты, подача) (0)","c":"L","t":"36AAC 36ABE","xv":"E08A","yv":"FC36"},{"h":"3D936","d":"3D956","k":"2D","nx":6,"ny":6,"n":"Окно обороты × подача 0/65,00 → C050","c":"L","t":"15ADC","xv":"E08A","yv":"FC36"},{"h":"3DA70","d":"3DA7E","k":"1D","nx":5,"ny":1,"n":"Кривая по ОЖ (0)","c":"L","t":"24012 24028","xv":"C002","yv":""},{"h":"3DA88","d":"3DA96","k":"1D","nx":5,"ny":1,"n":"Кривая по ОЖ 0…100 % (вентилятор?)","c":"L","t":"35112 35124 3513E","xv":"C002","yv":""},{"h":"3DAE0","d":"3DB00","k":"2D","nx":6,"ny":6,"n":"Окно контроля отклонения наддува = f(обороты, подача)","c":"H","t":"1F6B8 1F6D8","xv":"FC3A","yv":"FC36"},{"h":"3DB48","d":"3DB68","k":"2D","nx":6,"ny":6,"n":"Окно контроля EGR/массы воздуха = f(обороты, подача) → P0400","c":"H","t":"1EBB6 1EBD0","xv":"FC3A","yv":"FC36"},{"h":"3DBEC","d":"3DC04","k":"2D","nx":4,"ny":4,"n":"Окно правдоподобия = f(обороты, подача)","c":"L","t":"33294 332A6 332C0","xv":"FC3A","yv":"FC36"},{"h":"3DC70","d":"3DC78","k":"1D","nx":2,"ny":1,"n":"Линейное масштабирование f(DC26)","c":"L","t":"20000 20004","xv":"DC26","yv":""},{"h":"3DDBA","d":"3DDCE","k":"1D","nx":8,"ny":1,"n":"Замещающая температура f(C004)","c":"L","t":"373B4 373C6 373E0","xv":"C004","yv":""}];
+const $=s=>document.querySelector(s);
+const tb=$('#maptbl tbody'), viewer=$('#viewer');
+$('#mapcount').textContent=MAPS.length+' карт';
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function render(){
+  const q=$('#q').value.trim().toLowerCase(), cf=$('#cf').value;
+  tb.innerHTML='';
+  for(const m of MAPS){
+    const hay=(m.h+' '+m.d+' '+m.n+' '+m.t).toLowerCase();
+    if(q && !hay.includes(q)) continue;
+    if(cf && m.c!==cf) continue;
+    const tr=document.createElement('tr'); tr.className='row'; tr.tabIndex=0; tr.dataset.h=m.h;
+    tr.innerHTML=`<td class="a">0x${m.h}</td><td class="a">0x${m.d}</td><td class="a">${m.k} ${m.nx}×${m.ny}</td><td>${esc(m.n||'—')}</td><td><span class="pill ${m.c}">${m.c}</span></td><td class="a">${esc(m.t)}</td>`;
+    tr.addEventListener('click',()=>show(m.h));
+    tr.addEventListener('keydown',e=>{if(e.key==='Enter')show(m.h)});
+    tb.appendChild(tr);
+  }
+}
+function show(h, scroll){
+  const m=MAPS.find(x=>x.h===h); if(!m) return;
+  document.querySelectorAll('tr.row').forEach(r=>r.classList.toggle('sel',r.dataset.h===h));
+  viewer.innerHTML=`<h3>0x${m.h} <span class="pill ${m.c}">${m.c||'—'}</span></h3><p>${esc(m.n||'роль не определена')}</p>
+   <div class="meta"><span>заголовок 0x${m.h}</span><span>данные 0x${m.d}</span><span>${m.k} ${m.nx}×${m.ny}</span><span>ось X ${esc(m.xv||'—')}</span><span>ось Y ${esc(m.yv||'—')}</span><span>задача ${esc(m.t)}</span></div>
+   <p class="note">Значения карт в публичной версии не приводятся: это калибровка производителя. Откройте свой дамп в редакторе, чтобы увидеть оси и данные.</p>`;
+  if(scroll) viewer.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+}
+$('#q').addEventListener('input',render); $('#cf').addEventListener('change',render);
+document.querySelectorAll('.mapjump').forEach(b=>b.addEventListener('click',()=>{ $('#q').value=''; $('#cf').value=''; render(); show(b.dataset.map,true); }));
+render(); show('3C46E');
+</script>
+
+<script>document.querySelectorAll('.topnav .langs a').forEach(a=>a.addEventListener('click',()=>{try{localStorage.setItem('edc15m_lang',a.textContent==='Русский'?'ru':'en')}catch(e){}}));</script>
+</body></html>

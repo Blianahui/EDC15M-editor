@@ -1,7 +1,6 @@
 """Heuristic function starts: call targets inside the code range, plus the first instruction
 after a return (or after a jump to a ROM epilogue).
 usage: starts.py <lin.pkl> <lo_hex> <hi_hex> <out starts.pkl> [epilogue_rom_addrs]
-  EDC15VM+ 084:  starts.py out/lin.pkl 80000 100000 out/starts.pkl 2D6,830
   0281001550:    starts.py w550/lin.pkl 10000 38000 w550/starts.pkl"""
 import sys,pickle
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

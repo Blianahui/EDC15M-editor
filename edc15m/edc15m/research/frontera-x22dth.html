@@ -84,9 +84,11 @@ ul.plain{margin:0;padding-left:18px;display:grid;gap:4px;max-width:72ch}
 @media (prefers-reduced-motion:no-preference){tr.row td{transition:background .12s}}
 </style>
 
+<style>.topnav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px}.topnav a{color:var(--accent)}.topnav .langs a[aria-current]{color:var(--fg);font-weight:600;text-decoration:none}</style>
 <div class="wrap">
 
 <header class="plate">
+  <nav class="topnav"><a href="../index.html">← EDC15M</a><span class="langs"><a href="frontera-x22dth.html" aria-current="page">English</a> · <a href="frontera-x22dth.ru.html">Русский</a></span></nav>
   <h1>Opel Frontera B X22DTH · EDC15M</h1>
   <div class="ids"><span>Bosch <b>0281001791</b></span><span>GM <b>90589738</b></span><span>SW <b>UU2M6S90_S</b></span><span>CPU <b>Siemens B58748 (C167, mask ROM)</b></span><span>flash <b>2×AM29F010, 256 KB</b></span></div>
   <p class="lead">Code-level analysis of the stock dump. About 53k instructions were decoded with a custom C166 disassembler: 96 standard task entry points plus 78 additional ones, 114 map references and 92 calibration maps. Every map is tied to the function that reads it and to the variables on its axes. Below: how the firmware is organised, the calculation chains (fuel, boost, EGR, injection timing) and the full map list.</p>
@@ -235,7 +237,7 @@ function render(){
 function show(h, scroll){
   const m=MAPS.find(x=>x.h===h); if(!m) return;
   document.querySelectorAll('tr.row').forEach(r=>r.classList.toggle('sel',r.dataset.h===h));
-  viewer.innerHTML=`<h3>0x${m.h} <span class="pill ${m.c}">${m.c}</span></h3><p>${esc(m.n||'role unknown')}</p>
+  viewer.innerHTML=`<h3>0x${m.h} <span class="pill ${m.c}">${m.c||'—'}</span></h3><p>${esc(m.n||'role unknown')}</p>
    <div class="meta"><span>header 0x${m.h}</span><span>data 0x${m.d}</span><span>${m.k} ${m.nx}×${m.ny}</span><span>X axis ${esc(m.xv||'—')}</span><span>Y axis ${esc(m.yv||'—')}</span><span>task ${esc(m.t)}</span></div>
    <p class="note">Map values are not included in the public version: they are the manufacturer’s calibration. Open your own dump in the editor to see axes and data.</p>`;
   if(scroll) viewer.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
@@ -245,4 +247,5 @@ document.querySelectorAll('.mapjump').forEach(b=>b.addEventListener('click',()=>
 render(); show('3C46E');
 </script>
 
+<script>document.querySelectorAll('.topnav .langs a').forEach(a=>a.addEventListener('click',()=>{try{localStorage.setItem('edc15m_lang',a.textContent==='Русский'?'ru':'en')}catch(e){}}));</script>
 </body></html>
