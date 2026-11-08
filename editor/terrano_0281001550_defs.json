@@ -1,0 +1,1305 @@
+{
+ "format": "edc15m-defs",
+ "version": 1,
+ "ecu": "Nissan Terrano II 2.7 TDi 0281001550 SW 1037356022",
+ "note": "Map address = start of header (X axis ID word). Data is stored row by row along X: index = x*ny + y. Working dataset 0x38000; the second set at 0x00000–0x07FFF is not used by the code.",
+ "items": [
+  {
+   "addr": "0x39172",
+   "kind": "2D",
+   "name": "Map f(rpm, C004)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3921A",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3927C",
+   "kind": "2D",
+   "name": "Map f(rpm, fuel)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39294",
+   "kind": "2D",
+   "name": "Map f(rpm, fuel)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x392AC",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39300",
+   "kind": "2D",
+   "name": "Map f(rpm, C1DE)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x393A8",
+   "kind": "2D",
+   "name": "Map f(rpm, C002)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x395F0",
+   "kind": "2D",
+   "name": "Map f(rpm, DCDA)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39910",
+   "kind": "2D",
+   "name": "Driver demand = f(rpm, pedal)  [Titanium: fuel during acceleration]",
+   "conf": "H",
+   "tasks": "20166 #34",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "% pedal",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x39C18",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "263B2 #27",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B844",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "16518 #41",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B898",
+   "kind": "2D",
+   "name": "Map f(C004, atm. pressure)",
+   "conf": "",
+   "tasks": "15C74 #40",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B940",
+   "kind": "1D",
+   "name": "Curve f(DD30)",
+   "conf": "",
+   "tasks": "15C74 #40",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C79A",
+   "kind": "2D",
+   "name": "Map f(rpm, C002)",
+   "conf": "",
+   "tasks": "20AB6 #22",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C9E2",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "20AB6 #22",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CA2C",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CA70",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CAB4",
+   "kind": "2D",
+   "name": "Start fuel = f(rpm, temperature)",
+   "conf": "M",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3CCFC",
+   "kind": "2D",
+   "name": "Fuel limit = f(atm. pressure, rpm)  [Titanium: torque limiter, 4 curves]",
+   "conf": "H",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3D076",
+   "kind": "2D",
+   "name": "Smoke limiter = f(rpm, air mass)",
+   "conf": "M",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3D2BE",
+   "kind": "2D",
+   "name": "Smoke limiter input (temperature correction, 1:1 in stock)",
+   "conf": "M",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D506",
+   "kind": "2D",
+   "name": "Map f(rpm, DC16)",
+   "conf": "",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D74E",
+   "kind": "2D",
+   "name": "Map f(DC14, DC12)",
+   "conf": "",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D996",
+   "kind": "1D",
+   "name": "Curve f(atm. pressure)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D9EA",
+   "kind": "1D",
+   "name": "Curve f(atm. pressure)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DA3E",
+   "kind": "1D",
+   "name": "Curve f(C004)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DA92",
+   "kind": "2D",
+   "name": "Map f(C002, rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DB8A",
+   "kind": "2D",
+   "name": "Map f(C00A, rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DC82",
+   "kind": "2D",
+   "name": "Map f(C002, rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DD22",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DD3E",
+   "kind": "2D",
+   "name": "Map f(rpm, fuel)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DE36",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DE92",
+   "kind": "2D",
+   "name": "Fuel temperature correction",
+   "conf": "M",
+   "tasks": "1709A #24",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E10E",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1F712 1F782 #26",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E11A",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1F782 #26",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E180",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "263B2 #27",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E39C",
+   "kind": "2D",
+   "name": "Fuel → pump metering position setpoint  [Titanium: injection (Ext.)]",
+   "conf": "H",
+   "tasks": "14A26 #29",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "mg",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E6F0",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1460C #43",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E744",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "1460C #43",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E79A",
+   "kind": "1D",
+   "name": "Curve f(rpm)",
+   "conf": "",
+   "tasks": "160A8 #42",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E7A6",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E7FA",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E84E",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E8A2",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E8F6",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3EA3A",
+   "kind": "1D",
+   "name": "Curve f(C002)",
+   "conf": "",
+   "tasks": "1F782 #26",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F03C",
+   "kind": "2D",
+   "name": "Map f(C28A, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F10A",
+   "kind": "1D",
+   "name": "Curve f(atm. pressure)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "mbar",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F136",
+   "kind": "1D",
+   "name": "Curve f(C004)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F162",
+   "kind": "2D",
+   "name": "Map f(rpm, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F270",
+   "kind": "2D",
+   "name": "Map f(rpm, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F384",
+   "kind": "2D",
+   "name": "Map f(rpm, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F4D4",
+   "kind": "2D",
+   "name": "Map f(rpm, C28A)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F71C",
+   "kind": "2D",
+   "name": "Signed values, looks like injection timing",
+   "conf": "L",
+   "tasks": "15868 #44",
+   "signed": true,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F8FE",
+   "kind": "2D",
+   "name": "Map f(rpm, C28A)",
+   "conf": "",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F984",
+   "kind": "2D",
+   "name": "Map f(rpm, C28A)",
+   "conf": "",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F9AA",
+   "kind": "2D",
+   "name": "[Titanium: phase of injection], process #45 with other injection maps",
+   "conf": "M",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "rpm",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3FBF2",
+   "kind": "1D",
+   "name": "Curve f(C01A)",
+   "conf": "",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  }
+ ],
+ "ck": {
+  "family": 1,
+  "start": 232320,
+  "C": 262140,
+  "K3": 34353,
+  "K4": 61389,
+  "iA": 34353,
+  "iB": 61389
+ }
+}

@@ -15,7 +15,7 @@
 
 Some listings label 0281001550 files as “Jeep Cherokee 2.7 TD” with Nissan numbers 23710-7F405; these are Terrano files under a different name.
 
-Interactive version: [research/terrano-0281001550.html](../../research/terrano-0281001550.html). Analysis tools: [tools/terrano](../../tools/terrano/README.md).
+Interactive version: [research/terrano-0281001550.html](../../research/terrano-0281001550.html). Analysis tools: [tools/terrano](../../tools/terrano/README.md). The map editor supports this ECU: definitions in [defs/terrano_0281001550_defs.json](../../defs/terrano_0281001550_defs.json); the editor detects the ECU when a dump is opened.
 
 ## Memory
 
@@ -51,7 +51,7 @@ Tasks use the same prologue as on the Frontera: `mov r0,[0040h]; sub r0,#frame; 
 
 Addresses of the same map in the two sets differ by 0x38000. ECM Titanium shows the set-2 addresses (0x0xxxx) and writes to both sets.
 
-The last 4 bytes of each dataset (0x07FFC and 0x3FFFC) differ and look like checksums. The algorithm has not been identified yet.
+**Checksum:** the same algorithm as on the Frontera (“family 1 / TROIA”, block marker `55 55 00 00 56 56`), one block per dataset: 0x00B80–0x07FFB → 0x07FFC and 0x38B80–0x3FFFB → 0x3FFFC. Verified on the stock dump: both stored checksums match. The map editor recalculates both, see [checksum.md](../frontera-x22dth/checksum.md).
 
 ## Fuel chain
 

@@ -13,7 +13,7 @@ Repository: **https://github.com/Blianahui/EDC15M-editor**
 | Vehicle | Engine | ECU | Software | Status |
 | --- | --- | --- | --- | --- |
 | Opel Frontera B | X22DTH 2.2 DTI | Bosch 0281001791, EDC15M, CPU Siemens B58748 (C167) | UU2M6S90_S | editor + full analysis |
-| Nissan Terrano II | 2.7 TDi (TD27ETi) | Bosch 0281001550, EDC MSA 15.5, 256 KB | 1037356022 | analysis, see [docs/terrano](docs/terrano/README.md) |
+| Nissan Terrano II | 2.7 TDi (TD27ETi) | Bosch 0281001550, EDC MSA 15.5, 256 KB | 1037356022 | editor + analysis, see [docs/terrano](docs/terrano/README.md) |
 
 Addresses **do not carry over** between ECUs. Even neighbouring software versions place maps differently.
 

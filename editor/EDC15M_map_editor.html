@@ -107,6 +107,7 @@ table.t td.n{font-family:var(--mono);white-space:nowrap}
     <button id="bCsv">CSV изменений</button>
   </div>
   <div class="grp">
+    <label for="ecuSel" class="mono">Блок:</label><select id="ecuSel"><option value="frontera">Opel Frontera X22DTH · 0281001791</option><option value="terrano550">Nissan Terrano 2.7 TDi · 0281001550</option></select>
     <label for="fDefs" class="mono">Описания:</label><input type="file" id="fDefs">
     <button id="bDefsSave">Сохранить описания</button>
     <button id="bDefsReset">Встроенные</button>
@@ -2367,10 +2368,1318 @@ table.t td.n{font-family:var(--mono);white-space:nowrap}
   "iB": 61389
  }
 }</script>
+<script id="defsBuiltinTerrano" type="application/json">{
+ "format": "edc15m-defs",
+ "version": 1,
+ "ecu": "Nissan Terrano II 2.7 TDi 0281001550 SW 1037356022",
+ "note": "Адрес карты = начало заголовка (слово ID оси X). Данные лежат построчно по X: индекс = x*ny + y. Рабочий набор данных 0x38000; второй набор 0x00000–0x07FFF код не использует.",
+ "items": [
+  {
+   "addr": "0x39172",
+   "kind": "2D",
+   "name": "Карта f(обороты, C004)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3921A",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3927C",
+   "kind": "2D",
+   "name": "Карта f(обороты, подача)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39294",
+   "kind": "2D",
+   "name": "Карта f(обороты, подача)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x392AC",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39300",
+   "kind": "2D",
+   "name": "Карта f(обороты, C1DE)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x393A8",
+   "kind": "2D",
+   "name": "Карта f(обороты, C002)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x395F0",
+   "kind": "2D",
+   "name": "Карта f(обороты, DCDA)",
+   "conf": "",
+   "tasks": "1E26A #30",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x39910",
+   "kind": "2D",
+   "name": "Запрос водителя = f(обороты, педаль)  [Titanium: fuel during acceleration]",
+   "conf": "H",
+   "tasks": "20166 #34",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "% педали",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x39C18",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "263B2 #27",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B844",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "16518 #41",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B898",
+   "kind": "2D",
+   "name": "Карта f(C004, атм. давление)",
+   "conf": "",
+   "tasks": "15C74 #40",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "мбар",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3B940",
+   "kind": "1D",
+   "name": "Кривая f(DD30)",
+   "conf": "",
+   "tasks": "15C74 #40",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C79A",
+   "kind": "2D",
+   "name": "Карта f(обороты, C002)",
+   "conf": "",
+   "tasks": "20AB6 #22",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3C9E2",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "20AB6 #22",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CA2C",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CA70",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3CAB4",
+   "kind": "2D",
+   "name": "Пусковая подача = f(обороты, температура)",
+   "conf": "M",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3CCFC",
+   "kind": "2D",
+   "name": "Ограничитель подачи = f(атм. давление, обороты)  [Titanium: torque limiter, 4 кривые]",
+   "conf": "H",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "мбар",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3D076",
+   "kind": "2D",
+   "name": "Ограничитель дыма = f(обороты, масса воздуха)",
+   "conf": "M",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "note": "",
+   "min": 0,
+   "max": 7000
+  },
+  {
+   "addr": "0x3D2BE",
+   "kind": "2D",
+   "name": "Вход ограничителя дыма (поправка по температуре, в стоке 1:1)",
+   "conf": "M",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D506",
+   "kind": "2D",
+   "name": "Карта f(обороты, DC16)",
+   "conf": "",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D74E",
+   "kind": "2D",
+   "name": "Карта f(DC14, DC12)",
+   "conf": "",
+   "tasks": "1D35C 1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D996",
+   "kind": "1D",
+   "name": "Кривая f(атм. давление)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "мбар",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3D9EA",
+   "kind": "1D",
+   "name": "Кривая f(атм. давление)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "мбар",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DA3E",
+   "kind": "1D",
+   "name": "Кривая f(C004)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DA92",
+   "kind": "2D",
+   "name": "Карта f(C002, обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DB8A",
+   "kind": "2D",
+   "name": "Карта f(C00A, обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DC82",
+   "kind": "2D",
+   "name": "Карта f(C002, обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DD22",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DD3E",
+   "kind": "2D",
+   "name": "Карта f(обороты, подача)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DE36",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1D522 #25",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3DE92",
+   "kind": "2D",
+   "name": "Поправка по температуре топлива",
+   "conf": "M",
+   "tasks": "1709A #24",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E10E",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1F712 1F782 #26",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E11A",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1F782 #26",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E180",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "263B2 #27",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E39C",
+   "kind": "2D",
+   "name": "Подача → уставка положения дозатора ТНВД  [Titanium: injection (Ext.)]",
+   "conf": "H",
+   "tasks": "14A26 #29",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "мг",
+    "scale": 100,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E6F0",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1460C #43",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E744",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "1460C #43",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E79A",
+   "kind": "1D",
+   "name": "Кривая f(обороты)",
+   "conf": "",
+   "tasks": "160A8 #42",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E7A6",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E7FA",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E84E",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E8A2",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3E8F6",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1C2C8 #53",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3EA3A",
+   "kind": "1D",
+   "name": "Кривая f(C002)",
+   "conf": "",
+   "tasks": "1F782 #26",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F03C",
+   "kind": "2D",
+   "name": "Карта f(C28A, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F10A",
+   "kind": "1D",
+   "name": "Кривая f(атм. давление)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "мбар",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F136",
+   "kind": "1D",
+   "name": "Кривая f(C004)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F162",
+   "kind": "2D",
+   "name": "Карта f(обороты, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F270",
+   "kind": "2D",
+   "name": "Карта f(обороты, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F384",
+   "kind": "2D",
+   "name": "Карта f(обороты, DEDC)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F4D4",
+   "kind": "2D",
+   "name": "Карта f(обороты, C28A)",
+   "conf": "",
+   "tasks": "15868 #44",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F71C",
+   "kind": "2D",
+   "name": "Знаковые значения, похоже на угол впрыска",
+   "conf": "L",
+   "tasks": "15868 #44",
+   "signed": true,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F8FE",
+   "kind": "2D",
+   "name": "Карта f(обороты, C28A)",
+   "conf": "",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F984",
+   "kind": "2D",
+   "name": "Карта f(обороты, C28A)",
+   "conf": "",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "°C",
+    "scale": 10,
+    "offset": -273.1
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3F9AA",
+   "kind": "2D",
+   "name": "[Titanium: phase of injection], процесс #45 вместе с другими картами впрыска",
+   "conf": "M",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "об/мин",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  },
+  {
+   "addr": "0x3FBF2",
+   "kind": "1D",
+   "name": "Кривая f(C01A)",
+   "conf": "",
+   "tasks": "2B4D6 #45",
+   "signed": false,
+   "x": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "y": null,
+   "v": {
+    "unit": "",
+    "scale": 1,
+    "offset": 0
+   },
+   "note": ""
+  }
+ ],
+ "ck": {
+  "family": 1,
+  "start": 232320,
+  "C": 262140,
+  "K3": 34353,
+  "K4": 61389,
+  "iA": 34353,
+  "iB": 61389
+ }
+}</script>
 <script>
 'use strict';
 const CAL_LO=0x38000, CAL_HI=0x40000, FSIZE=0x40000;
 const LS_KEY='edc15m_defs_v1';
+const ECUS={frontera:{el:'defsBuiltin',ls:'edc15m_defs_v1',name:'Opel Frontera X22DTH 0281001791'},
+            terrano550:{el:'defsBuiltinTerrano',ls:'edc15m_defs_v1_terrano550',name:'Nissan Terrano 2.7 TDi 0281001550'}};
+let ECU='frontera';
 const S={main:null,mainName:'',cmp:null,cmpName:'',defs:null,tab:'maps',cur:null,sel:null,undo:[],log:[],raw:false,diffPct:false,scan:null,temp:null,editDef:false};
 const $=s=>document.querySelector(s);
 const hex=(n,w=5)=>'0x'+n.toString(16).toUpperCase().padStart(w,'0');
@@ -2379,8 +3688,8 @@ function U16(b,a){return b[a]|(b[a+1]<<8)}
 function S16(b,a){const v=U16(b,a);return v>=0x8000?v-0x10000:v}
 function rd(b,a,signed){return signed?S16(b,a):U16(b,a)}
 function parseAddr(s){s=String(s).trim().replace(/^0x/i,'');if(!/^[0-9a-f]+$/i.test(s))return NaN;return parseInt(s,16)}
-function lsGet(){try{return localStorage.getItem(LS_KEY)}catch(e){return null}}
-function lsSet(v){try{localStorage.setItem(LS_KEY,v)}catch(e){}}
+function lsGet(){try{return localStorage.getItem(ECUS[ECU].ls)}catch(e){return null}}
+function lsSet(v){try{localStorage.setItem(ECUS[ECU].ls,v)}catch(e){}}
 
 /* ---------- map header parsing: [Xid][nx][X..][Yid][ny][Y..][data], data X-major ---------- */
 function axisAt(b,a){
@@ -2514,7 +3823,24 @@ function loadDefs(obj,src){
   setStatus(src);
 }
 function sortDefs(){S.defs.items.sort((a,b)=>parseAddr(a.addr)-parseAddr(b.addr))}
-function builtinDefs(){return JSON.parse($('#defsBuiltin').textContent)}
+function builtinDefs(id){return JSON.parse($('#'+ECUS[id||ECU].el).textContent)}
+function selectEcu(id,msg){
+  ECU=ECUS[id]?id:'frontera'; const sel=$('#ecuSel'); if(sel) sel.value=ECU;
+  try{localStorage.setItem('edc15m_ecu',ECU)}catch(e){}
+  let d=null; const ls=lsGet(); if(ls){try{d=JSON.parse(ls)}catch(e){d=null}}
+  try{loadDefs(d||builtinDefs(),d?'описания из прошлой сессии (браузер)':'встроенные описания')}catch(e){loadDefs(builtinDefs(),'встроенные описания')}
+  S.scan=null; if(msg) setStatus(msg);
+}
+function ecuScore(id,b){
+  const it=builtinDefs(id).items.filter(d=>d.kind==='1D'||d.kind==='2D'); if(!it.length) return 0;
+  return it.filter(d=>geom(d,b)).length/it.length;
+}
+function detectEcu(b){
+  const sc={}; for(const id in ECUS) sc[id]=ecuScore(id,b);
+  const best=Object.keys(sc).sort((x,y)=>sc[y]-sc[x])[0];
+  if(best!==ECU && sc[best]>=0.8 && sc[best]>sc[ECU]+0.2){ selectEcu(best,'Определён блок: '+ECUS[best].name); return true }
+  return false;
+}
 function saveDefsLS(){lsSet(JSON.stringify(S.defs))}
 function defByAddr(a){return S.defs.items.find(d=>parseAddr(d.addr)===a)}
 let overlapWarn=[];
@@ -2843,7 +4169,7 @@ function download(name,data,type){const b=new Blob([data],{type});const u=URL.cr
 $('#fMain').onchange=async e=>{const f=e.target.files[0];if(!f)return;const b=await readFile(f);
   if(b.length!==FSIZE&&!confirmInline(`Размер ${b.length} байт, ожидается ${FSIZE}. Всё равно открыть?`))return;
   S.main=b;S.mainName=f.name;S.undo=[];S.scan=null;S.log.push({t:new Date().toLocaleTimeString(),label:'Открыт '+f.name,n:0,first:0,detail:[]});
-  if(!S.cmp) setStatus('Совет: откройте стоковый файл в «Сравнить с», чтобы видеть изменения'); checkOverlaps(); renderAll()};
+  const sw=detectEcu(b); if(!S.cmp&&!sw) setStatus('Совет: откройте стоковый файл в «Сравнить с», чтобы видеть изменения'); checkOverlaps(); renderAll()};
 $('#fCmp').onchange=async e=>{const f=e.target.files[0];if(!f)return;S.cmp=await readFile(f);S.cmpName=f.name;renderAll()};
 $('#fDefs').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{loadDefs(JSON.parse(new TextDecoder().decode(await readFile(f))),'описания загружены из '+f.name);renderAll()}catch(err){alert('Не удалось загрузить описания: '+err.message)}};
 $('#bDefsSave').onclick=()=>download('edc15m_defs.json',JSON.stringify(S.defs,null,1),'application/json');
@@ -2876,9 +4202,9 @@ document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{S.tab=b.data
 ['#q','#qConf','#qChg'].forEach(s=>$(s).addEventListener('input',()=>{renderList();if(S.tab==='scal')renderEditor()}));
 function renderAll(){setStatus();renderList();renderEditor()}
 (function boot(){
-  let d=null; const ls=lsGet();
-  if(ls){try{d=JSON.parse(ls)}catch(e){d=null}}
-  try{loadDefs(d||builtinDefs(),d?'описания из прошлой сессии (браузер)':'встроенные описания')}catch(e){loadDefs(builtinDefs(),'встроенные описания')}
+  let e0='frontera'; try{e0=localStorage.getItem('edc15m_ecu')||'frontera'}catch(e){}
+  selectEcu(e0);
+  $('#ecuSel').onchange=e=>{selectEcu(e.target.value,'Блок: '+ECUS[e.target.value].name);checkOverlaps();renderAll()};
   renderAll();
 })();
 // exposed for automated checks
@@ -2889,7 +4215,7 @@ window.__edc={S,parseHeader,geom,writeWords,applyOp,undo,sum16};
    dialog and CSV export is translated through the phrase table below. Switching back to
    Russian restores the original text. */
 (function(){
-  const PAIRS = [["EDC15M редактор карт", "EDC15M map editor"], ["EDC15M · редактор карт", "EDC15M · map editor"], ["Прошивка:", "Firmware:"], ["Сравнить с (сток):", "Compare with (stock):"], ["Отменить", "Undo"], ["Пересчитать сумму", "Recalculate checksum"], ["Проверить сумму", "Verify checksum"], ["Сохранить файл", "Save file"], ["CSV изменений", "Changes CSV"], ["Описания:", "Definitions:"], ["Сохранить описания", "Save definitions"], ["Встроенные", "Built-in"], ["Карты", "Maps"], ["Значения", "Values"], ["Поиск", "Scan"], ["Журнал", "Log"], ["адрес, название, задача", "address, name, task"], ["все", "all"], ["только изменённые", "changed only"], ["Откройте файл прошивки (256 КБ). Для подсветки изменений откройте и стоковый файл в поле «Сравнить с».", "Open a firmware file (256 KB). To highlight changes, also open the stock file in “Compare with”."], ["Запись вне калибровки 0x38000–0x3FFFF запрещена: ", "Writing outside calibration 0x38000–0x3FFFF is not allowed: "], ["Значение вне 16 бит: ", "Value outside 16 bits: "], ["Нет открытого файла", "No file open"], ["Блок контрольной суммы не найден (нет маркера 55 55 00 00 56 56). Файл не распознан.", "Checksum block not found (no 55 55 00 00 56 56 marker). File not recognised."], ["блок ", "block "], ["уже верна", "already correct"], ["Проверка контрольной суммы", "Checksum check"], [" (по CFG, без маркера)", " (by CFG, no marker)"], ["ЕСТЬ расхождения — нажмите «Пересчитать сумму».", "MISMATCH found — press “Recalculate checksum”."], ["Все блоки верны.", "All blocks are correct."], ["Контрольная сумма уже верна, менять нечего.", "Checksum is already correct, nothing to change."], ["Пересчёт контрольной суммы (", "Checksum recalculation ("], [" бл.)", " blk)"], ["Контрольная сумма пересчитана", "Checksum recalculated"], [" (по CFG)", " (by CFG)"], ["Теперь можно сохранять файл.", "You can now save the file."], ["Отмена: ", "Undo: "], ["Отменять нечего", "Nothing to undo"], ["Не похоже на файл описаний (нет items)", "Does not look like a definitions file (no items)"], [" и ", " and "], ["шагов отмены: ", "undo steps: "], ["файл ", "file "], ["сумма байт (Galletto) ", "byte sum (Galletto) "], ["Сумма байт (Galletto): ", "Byte sum (Galletto): "], ["сравнение ", "compare "], ["отличается байт: ", "bytes differ: "], ["описаний: ", "definitions: "], ["перекрытие описаний: ", "overlapping definitions: "], ["нет заголовка", "no header"], ["изм.", "chg"], ["(без названия)", "(unnamed)"], ["Ничего не найдено", "Nothing found"], ["Изменений пока не было", "No changes yet"], [" сл.", " w"], ["Сначала откройте прошивку", "Open a firmware file first"], ["Все места калибровки, где читается корректный заголовок карты. Найдено ", "All calibration locations with a valid map header. Found "], [", из них без описания ", ", without definition "], [". Без описания ≠ неиспользуемая: часть карт код берёт через указатели в ОЗУ.", ". Undefined ≠ unused: some maps are fetched by the code through pointers in RAM."], ["описана", "defined"], ["новая", "new"], ["ось X ", "X axis "], [", ось Y ", ", Y axis "], ["Выберите карту слева или добавьте новую.", "Select a map on the left or add a new one."], ["По этому адресу в открытом файле нет корректного заголовка карты. Исправьте адрес в описании ниже или удалите описание.", "There is no valid map header at this address in the open file. Fix the address in the definition below or delete the definition."], ["значение", "value"], ["сырое ", "raw "], ["было ", "was "], ["вне пределов описания", "outside definition limits"], ["сырые числа", "raw numbers"], ["разница в %", "difference in %"], ["данные ", "data "], ["значения: ", "values: "], ["сырые", "raw"], [" (сырое / ", " (raw / "], ["пределы ", "limits "], ["задачи ", "tasks "], ["Выделено ячеек: ", "Selected cells: "], ["Выделить всё", "Select all"], ["число", "number"], ["Число для операции", "Number for operation"], ["= задать", "= set"], ["− убавить", "− subtract"], ["+ прибавить", "+ add"], ["вернуть из сравнения", "restore from compare"], ["Выделение: протяните мышью или Shift+клик. Двойной клик по ячейке — ввести значение. Если поле числа пустое, «+» и «−» прибавляют/убавляют 1. Числа операций в тех же единицах, что на экране (галочка «сырые числа» переключает). Для «± %» введите, например, 15 или −5.", "Selection: drag with the mouse or Shift+click. Double-click a cell to enter a value. If the number field is empty, “+” and “−” add/subtract 1. Operation numbers are in the units shown on screen (the “raw numbers” checkbox switches). For “± %” enter e.g. 15 or −5."], ["Редактируемый файл: ", "Edited file: "], ["Сравнение: ", "Compare: "], ["в редактируемом ", "in edited file "], ["Сначала выделите ячейки", "Select cells first"], ["Введите число", "Enter a number"], ["Результат вне диапазона −32768…32767", "Result out of range −32768…32767"], ["Результат вне диапазона 0…65535", "Result out of range 0…65535"], ["возврат из сравнения", "restore from compare"], [" яч.)", " cells)"], ["Внимание: ", "Warning: "], [" ячеек вне пределов, заданных в описании (", " cells outside the definition limits ("], ["). Они выделены красным.", "). They are highlighted in red."], ["Вне диапазона 16 бит", "Out of 16-bit range"], ["новое", "new"], ["Записать", "Write"], ["Описание", "Definition"], ["Отдельные значения", "Single values"], ["Не карты, а одиночные константы калибровки. Значение вводится в показанных единицах; маска — в hex.", "Not maps but single calibration constants. Enter values in the units shown; masks in hex."], ["Адрес", "Address"], ["Что это", "Description"], ["Сейчас", "Current"], ["В сравнении", "In compare"], ["Неверное значение", "Invalid value"], ["Значение вне пределов описания (", "Value outside definition limits ("], ["). Всё равно записать?", "). Write anyway?"], ["Без описания", "Undefined"], ["без описания", "undefined"], ["ID оси X ", "X axis ID "], ["ID оси Y ", "Y axis ID "], ["Добавить в описания", "Add to definitions"], ["Добавить карту или значение", "Add a map or value"], ["например 3BB40", "e.g. 3BB40"], ["как есть (заголовок или данные)", "as is (header or data)"], ["из Titanium/WinOLS (данные −2)", "from Titanium/WinOLS (data −2)"], ["Найти карту", "Find map"], ["Добавить как одиночное значение", "Add as single value"], ["Без заголовка: ", "Without header: "], ["данные с ", "data from "], ["Добавить как таблицу без осей", "Add as table without axes"], ["Неверный адрес", "Invalid address"], ["заголовок по этому адресу", "header at this address"], ["адрес — начало данных, заголовок найден выше", "address is the data start, header found above"], ["адрес внутри данных карты", "address is inside map data"], ["Заголовок карты не найден. Если это таблица без осей — используйте строку «Без заголовка», если одно число — «одиночное значение».", "Map header not found. For a table without axes use the “Without header” row, for a single number use “single value”."], [": заголовок ", ": header "], [", данные ", ", data "], ["Уже описана: ", "Already defined: "], ["Открыть", "Open"], ["Добавить", "Add"], ["Адрес должен быть чётным и внутри 0x38000–0x3FFFF", "Address must be even and within 0x38000–0x3FFFF"], ["Проверьте адрес и размеры (адрес чётный, внутри калибровки)", "Check address and size (even address, inside calibration)"], ["Описание с этим адресом уже есть", "A definition with this address already exists"], ["Внимание: описания перекрываются: ", "Warning: definitions overlap: "], ["единица", "unit"], ["делитель", "divisor"], ["смещение", "offset"], ["Изменить описание", "Edit definition"], [" (данные)", " (data)"], [" (заголовок)", " (header)"], ["Название", "Name"], ["Уверенность", "Confidence"], ["Знаковые числа", "Signed values"], ["да (−32768…32767)", "yes (−32768…32767)"], ["нет (0…65535)", "no (0…65535)"], ["Размер X × Y", "Size X × Y"], ["Значения: ед. / делитель / смещение", "Values: unit / divisor / offset"], ["Ось X: ед. / делитель / смещение", "X axis: unit / divisor / offset"], ["Ось Y: ед. / делитель / смещение", "Y axis: unit / divisor / offset"], ["Пределы (в единицах)", "Limits (in units)"], ["мин.", "min"], ["макс.", "max"], ["за ними — красный", "outside shown in red"], ["Показывать в hex", "Show as hex"], ["нет", "no"], ["да", "yes"], ["Комментарий", "Comment"], ["Физическое значение = сырое / делитель + смещение. Пример: подача 0,01 мг → делитель 100; температура 0,1 K → делитель 10, смещение −273,1.", "Physical value = raw / divisor + offset. Example: fuel 0.01 mg → divisor 100; temperature 0.1 K → divisor 10, offset −273.1."], ["Сохранить описание", "Save definition"], ["Закрыть", "Close"], ["Удалить описание", "Delete definition"], ["Такой адрес уже описан", "This address is already defined"], ["По этому адресу нет заголовка карты", "No map header at this address"], ["? Данные в прошивке не меняются.", "? Firmware data is not changed."], ["Изменений в этой сессии нет.", "No changes in this session."], ["Журнал правок этой сессии", "Edit log of this session"], ["Время", "Time"], ["Действие", "Action"], ["Слов", "Words"], ["Детали", "Details"], ["Размер ", "Size "], [" байт, ожидается ", " bytes, expected "], [". Всё равно открыть?", ". Open anyway?"], ["Открыт ", "Opened "], ["Совет: откройте стоковый файл в «Сравнить с», чтобы видеть изменения", "Tip: open the stock file in “Compare with” to see changes"], ["описания загружены из ", "definitions loaded from "], ["Не удалось загрузить описания: ", "Could not load definitions: "], ["Заменить текущие описания встроенными? Ваши добавленные описания пропадут (сохраните их перед этим).", "Replace current definitions with the built-in ones? Definitions you added will be lost (save them first)."], ["встроенные описания", "built-in definitions"], ["ВНИМАНИЕ: контрольная сумма НЕ пересчитана. Нажмите «Пересчитать сумму» перед заливкой.", "WARNING: the checksum has NOT been recalculated. Press “Recalculate checksum” before flashing."], ["Файл сохранён как ", "File saved as "], ["Нужны оба файла: прошивка и файл сравнения", "Both files are needed: firmware and compare file"], ["адрес;карта;название;x;y;было;стало;было_физ;стало_физ;изменение_%", "address;map;name;x;y;old;new;old_phys;new_phys;change_%"], ["описания из прошлой сессии (браузер)", "definitions from previous session (browser)"], ["об/мин", "rpm"], ["мг воздуха", "mg air"], ["мг", "mg"], ["мбар", "mbar"], ["% педали", "% pedal"], ["% скважн.", "% duty"], ["коэф.", "factor"], ["Сток ", "Stock "], ["1 = вкл, 0 = выкл", "1 = on, 0 = off"], ["1 = вкл", "1 = on"], ["0 = EGR закрыт всегда", "0 = EGR always closed"], ["Потолок уставки наддува (min(уставка, это))", "Boost setpoint ceiling (min(setpoint, this))"], ["Порог недодува для ошибки пути 0x1D (уставка − факт)", "Underboost threshold for path 0x1D fault (setpoint − actual)"], ["Порог передува для ошибки пути 0x1D (уставка − факт)", "Overboost threshold for path 0x1D fault (setpoint − actual)"], ["Фикс. скважность наддува в аварийном режиме", "Fixed boost duty in limp mode"], ["Скважность наддува: максимум", "Boost duty: maximum"], ["Маска ошибок → аварийный режим (бит 14 = EGR, бит 15 = наддув)", "Fault mask → limp mode (bit 14 = EGR, bit 15 = boost)"], ["EGR: порог оборотов режима 9 (клапан закрыт выше этих оборотов)", "EGR: mode 9 rpm threshold (valve closed above this rpm)"], ["EGR: скважность в режимах «закрыт»", "EGR: duty in “closed” modes"], ["EGR: порог отклонения воздуха вверх (ошибка P0400)", "EGR: upper air deviation threshold (P0400 fault)"], ["EGR: порог отклонения воздуха вниз (ошибка P0400)", "EGR: lower air deviation threshold (P0400 fault)"], ["P0400: флаг включения ошибки", "P0400: fault enable flag"], ["Путь 0x1D (наддув): флаг включения ошибки", "Path 0x1D (boost): fault enable flag"], ["Адрес карты = начало заголовка (слово ID оси X). Данные лежат построчно по X: индекс = x*ny + y.", "Map address = start of header (X axis ID word). Data is stored row by row along X: index = x*ny + y."], ["Аварийный ограничитель момента (30 мг): неисправность педали/датчиков", "Limp-mode torque limiter (30 mg): pedal/sensor fault"], ["Аварийный потолок подачи = f(обороты), набор 1", "Limp-mode fuel ceiling = f(rpm), set 1"], ["Аварийный потолок подачи = f(обороты), набор 2", "Limp-mode fuel ceiling = f(rpm), set 2"], ["Вес 0x3C524 = f(атм. давление)", "Weight of 0x3C524 = f(atm. pressure)"], ["Вес 0x3CBA2 = f(ОЖ) (0)", "Weight of 0x3CBA2 = f(coolant) (0)"], ["Вес 0x3CFA4 = f(ОЖ)", "Weight of 0x3CFA4 = f(coolant)"], ["Вес 0x3D09C = f(атм. давление)", "Weight of 0x3D09C = f(atm. pressure)"], ["Вес отклонения наддува для EGR (0)", "Boost deviation weight for EGR (0)"], ["Весовая кривая (0)", "Weighting curve (0)"], ["Время накала = f(ОЖ)?", "Glow time = f(coolant)?"], ["Время послепускового накала = f(ОЖ)?", "Post-start glow time = f(coolant)?"], ["Добавка к наддуву = f(обороты, атм.) × C1D8 (нули)", "Boost offset = f(rpm, atm.) × C1D8 (zeros)"], ["Добавка к углу = f(обороты, канал 2) (0)", "Timing offset = f(rpm, channel 2) (0)"], ["Добавка к уставке EGR = f(обороты, ОЖ): на холодном EGR закрыт", "EGR setpoint offset = f(rpm, coolant): EGR closed when cold"], ["Дымовой ограничитель = f(обороты, масса воздуха), РАБОЧАЯ копия  [Titanium: Injection at part throttle]", "Smoke limiter = f(rpm, air mass), ACTIVE copy  [Titanium: Injection at part throttle]"], ["Дымовой ограничитель «ext» = f(обороты, воздух), подмешивается с коэф. 0x3B926 (=0)  [Titanium: Injection ext]", "Smoke limiter “ext” = f(rpm, air), blended with factor 0x3B926 (=0)  [Titanium: Injection ext]"], ["Замена ext-ограничителя при недостоверном ДМРВ (0)", "Substitute ext limiter when MAF implausible (0)"], ["Замена дымового ограничителя при недостоверном ДМРВ (60 мг)", "Substitute smoke limiter when MAF implausible (60 mg)"], ["Замещающая температура f(C004)", "Substitute temperature f(C004)"], ["Замещающее значение массы воздуха", "Substitute air mass value"], ["Замещающее значение массы воздуха 2", "Substitute air mass value 2"], ["Запрос водителя: подача = f(обороты, педаль %)  [Titanium: Fuel during acceleration]", "Driver demand: fuel = f(rpm, pedal %)  [Titanium: Fuel during acceleration]"], ["Запрос угла начала подачи в VP44 = f(обороты, подача)", "VP44 start-of-injection request = f(rpm, fuel)"], ["Коэффициент подмешивания ext-ограничителей = f(C118), в стоке все 0", "Blend factor for ext limiters = f(C118), all 0 in stock"], ["Коэффициент уставки EGR = f(обороты, температура)", "EGR setpoint factor = f(rpm, temperature)"], ["Коэффициент уставки наддува = f(температура) (1,0)", "Boost setpoint factor = f(temperature) (1.0)"], ["Кривая f(C206) (2,50)", "Curve f(C206) (2.50)"], ["Кривая f(DC5C)", "Curve f(DC5C)"], ["Кривая f(DC98) (1,0)", "Curve f(DC98) (1.0)"], ["Кривая по ОЖ (0)", "Coolant curve (0)"], ["Кривая по ОЖ 0…100 % (вентилятор?)", "Coolant curve 0…100 % (fan?)"], ["Кривая по ОЖ 40,8…8,0 (ХХ/пуск?)", "Coolant curve 40.8…8.0 (idle/start?)"], ["Кривая по отклонению наддува для EGR (0)", "Boost deviation curve for EGR (0)"], ["Кривая-константа 5100 об/мин", "Constant curve 5100 rpm"], ["Линейное масштабирование f(DC26)", "Linear scaling f(DC26)"], ["Накал (0)", "Glow (0)"], ["Накал = f(напряжение?, ОЖ)?", "Glow = f(voltage?, coolant)?"], ["Накал f(T, ОЖ) (0)", "Glow f(T, coolant) (0)"], ["Накал f(обороты, подача) (0)", "Glow f(rpm, fuel) (0)"], ["Ограничение/линеаризация скважности наддува", "Boost duty limit/linearisation"], ["Ограничитель момента (подача по оборотам), РАБОЧАЯ копия  [Titanium: Torque limiter 2]", "Torque limiter (fuel vs rpm), ACTIVE copy  [Titanium: Torque limiter 2]"], ["Ограничитель момента «ext», подмешивается с коэф. 0x3B926 (=0)  [Titanium: Torque limiter 1]", "Torque limiter “ext”, blended with factor 0x3B926 (=0)  [Titanium: Torque limiter 1]"], ["Окно контроля EGR/массы воздуха = f(обороты, подача) → P0400", "EGR/air mass monitoring window = f(rpm, fuel) → P0400"], ["Окно контроля отклонения наддува = f(обороты, подача)", "Boost deviation monitoring window = f(rpm, fuel)"], ["Окно обороты × подача 0/65,00 → C050", "rpm × fuel window 0/65.00 → C050"], ["Окно правдоподобия = f(обороты, подача)", "Plausibility window = f(rpm, fuel)"], ["Опережение на высоте = f(обороты, подача)", "Altitude timing advance = f(rpm, fuel)"], ["Опережение при холодном пуске = f(обороты, подача)", "Cold start timing advance = f(rpm, fuel)"], ["Опорный наддув для EGR (0)", "Reference boost for EGR (0)"], ["Переворот скважности EGR: 100 % − x", "EGR duty inversion: 100 % − x"], ["Пилотная скважность клапана наддува = f(обороты, подача), 0,01 %", "Boost valve pilot duty = f(rpm, fuel), 0.01 %"], ["Поправка ДМРВ = f(T, атм.) (1,0)", "MAF correction = f(T, atm.) (1.0)"], ["Поправка предела подачи = f(обороты, ОЖ)", "Fuel limit correction = f(rpm, coolant)"], ["Поправка угла = f(обороты, подача) (0)", "Timing correction = f(rpm, fuel) (0)"], ["Поправка угла = f(обороты, температура C242)", "Timing correction = f(rpm, temperature C242)"], ["Поправка уставки EGR по атм. давлению", "EGR setpoint correction for atm. pressure"], ["Поправка уставки ХХ = f(C01A)", "Idle setpoint correction = f(C01A)"], ["Потолок суммы поправок угла (16,00)", "Ceiling for summed timing corrections (16.00)"], ["Похоже на уставку оборотов ХХ = f(ОЖ, температура воздуха)", "Likely idle speed setpoint = f(coolant, air temperature)"], ["Похоже: момент трения = f(обороты, ОЖ)", "Likely: friction torque = f(rpm, coolant)"], ["Похоже: пересчёт момент ↔ подача", "Likely: torque ↔ fuel conversion"], ["Похоже: подача → момент = f(обороты, подача)", "Likely: fuel → torque = f(rpm, fuel)"], ["Пусковая подача = f(обороты, ОЖ)", "Start fuel = f(rpm, coolant)"], ["Регулятор ХХ / моментная карта = f(обороты, E23C)", "Idle controller / torque map = f(rpm, E23C)"], ["Связано с ХХ = f(E034) (0)", "Idle related = f(E034) (0)"], ["Связано с давлением наддува = f(обороты, DDC4)", "Boost pressure related = f(rpm, DDC4)"], ["Связано с пуском = f(ОЖ)", "Start related = f(coolant)"], ["Смещение по атм. давлению для защиты от перегрева (0)", "Atm. pressure offset for over-temperature protection (0)"], ["Снижение подачи = f(обороты, подача) × (C242 − порог)/4096 (по температуре)", "Fuel derating = f(rpm, fuel) × (C242 − threshold)/4096 (temperature)"], ["Снижение подачи при перегреве = f(ОЖ+смещение, C2B0)", "Over-temperature fuel derating = f(coolant+offset, C2B0)"], ["Снижение подачи при перегреве = f(температура C006, C2B0)", "Over-temperature fuel derating = f(temperature C006, C2B0)"], ["Снижение уставки наддува на высоте = f(обороты, подача)", "Altitude boost setpoint reduction = f(rpm, fuel)"], ["Угол, канал 2 = f(обороты, подача) (0)", "Timing, channel 2 = f(rpm, fuel) (0)"], ["Угол, канал 2, часть = f(обороты, подача) (0)", "Timing, channel 2, part = f(rpm, fuel) (0)"], ["Уставка EGR по массе воздуха = f(обороты, подача), 0,1 мг/такт  [Titanium: Phase of injection — подпись неверна]", "EGR air mass setpoint = f(rpm, fuel), 0.1 mg/stroke  [Titanium: Phase of injection — label is wrong]"], ["Уставка наддува, база = f(обороты, подача)  [Titanium: Turbo pressure]", "Boost setpoint, base = f(rpm, fuel)  [Titanium: Turbo pressure]"], ["Характеристика ДМРВ (сырое → расход)", "MAF characteristic (raw → flow)"]];
+  const PAIRS = [["EDC15M редактор карт", "EDC15M map editor"], ["EDC15M · редактор карт", "EDC15M · map editor"], ["Прошивка:", "Firmware:"], ["Сравнить с (сток):", "Compare with (stock):"], ["Отменить", "Undo"], ["Пересчитать сумму", "Recalculate checksum"], ["Проверить сумму", "Verify checksum"], ["Сохранить файл", "Save file"], ["CSV изменений", "Changes CSV"], ["Описания:", "Definitions:"], ["Сохранить описания", "Save definitions"], ["Встроенные", "Built-in"], ["Карты", "Maps"], ["Значения", "Values"], ["Поиск", "Scan"], ["Журнал", "Log"], ["адрес, название, задача", "address, name, task"], ["все", "all"], ["только изменённые", "changed only"], ["Откройте файл прошивки (256 КБ). Для подсветки изменений откройте и стоковый файл в поле «Сравнить с».", "Open a firmware file (256 KB). To highlight changes, also open the stock file in “Compare with”."], ["Запись вне калибровки 0x38000–0x3FFFF запрещена: ", "Writing outside calibration 0x38000–0x3FFFF is not allowed: "], ["Значение вне 16 бит: ", "Value outside 16 bits: "], ["Нет открытого файла", "No file open"], ["Блок контрольной суммы не найден (нет маркера 55 55 00 00 56 56). Файл не распознан.", "Checksum block not found (no 55 55 00 00 56 56 marker). File not recognised."], ["блок ", "block "], ["уже верна", "already correct"], ["Проверка контрольной суммы", "Checksum check"], [" (по CFG, без маркера)", " (by CFG, no marker)"], ["ЕСТЬ расхождения — нажмите «Пересчитать сумму».", "MISMATCH found — press “Recalculate checksum”."], ["Все блоки верны.", "All blocks are correct."], ["Контрольная сумма уже верна, менять нечего.", "Checksum is already correct, nothing to change."], ["Пересчёт контрольной суммы (", "Checksum recalculation ("], [" бл.)", " blk)"], ["Контрольная сумма пересчитана", "Checksum recalculated"], [" (по CFG)", " (by CFG)"], ["Теперь можно сохранять файл.", "You can now save the file."], ["Отмена: ", "Undo: "], ["Отменять нечего", "Nothing to undo"], ["Не похоже на файл описаний (нет items)", "Does not look like a definitions file (no items)"], [" и ", " and "], ["шагов отмены: ", "undo steps: "], ["файл ", "file "], ["сумма байт (Galletto) ", "byte sum (Galletto) "], ["Сумма байт (Galletto): ", "Byte sum (Galletto): "], ["сравнение ", "compare "], ["отличается байт: ", "bytes differ: "], ["описаний: ", "definitions: "], ["перекрытие описаний: ", "overlapping definitions: "], ["нет заголовка", "no header"], ["изм.", "chg"], ["(без названия)", "(unnamed)"], ["Ничего не найдено", "Nothing found"], ["Изменений пока не было", "No changes yet"], [" сл.", " w"], ["Сначала откройте прошивку", "Open a firmware file first"], ["Все места калибровки, где читается корректный заголовок карты. Найдено ", "All calibration locations with a valid map header. Found "], [", из них без описания ", ", without definition "], [". Без описания ≠ неиспользуемая: часть карт код берёт через указатели в ОЗУ.", ". Undefined ≠ unused: some maps are fetched by the code through pointers in RAM."], ["описана", "defined"], ["новая", "new"], ["ось X ", "X axis "], [", ось Y ", ", Y axis "], ["Выберите карту слева или добавьте новую.", "Select a map on the left or add a new one."], ["По этому адресу в открытом файле нет корректного заголовка карты. Исправьте адрес в описании ниже или удалите описание.", "There is no valid map header at this address in the open file. Fix the address in the definition below or delete the definition."], ["значение", "value"], ["сырое ", "raw "], ["было ", "was "], ["вне пределов описания", "outside definition limits"], ["сырые числа", "raw numbers"], ["разница в %", "difference in %"], ["данные ", "data "], ["значения: ", "values: "], ["сырые", "raw"], [" (сырое / ", " (raw / "], ["пределы ", "limits "], ["задачи ", "tasks "], ["Выделено ячеек: ", "Selected cells: "], ["Выделить всё", "Select all"], ["число", "number"], ["Число для операции", "Number for operation"], ["= задать", "= set"], ["− убавить", "− subtract"], ["+ прибавить", "+ add"], ["вернуть из сравнения", "restore from compare"], ["Выделение: протяните мышью или Shift+клик. Двойной клик по ячейке — ввести значение. Если поле числа пустое, «+» и «−» прибавляют/убавляют 1. Числа операций в тех же единицах, что на экране (галочка «сырые числа» переключает). Для «± %» введите, например, 15 или −5.", "Selection: drag with the mouse or Shift+click. Double-click a cell to enter a value. If the number field is empty, “+” and “−” add/subtract 1. Operation numbers are in the units shown on screen (the “raw numbers” checkbox switches). For “± %” enter e.g. 15 or −5."], ["Редактируемый файл: ", "Edited file: "], ["Сравнение: ", "Compare: "], ["в редактируемом ", "in edited file "], ["Сначала выделите ячейки", "Select cells first"], ["Введите число", "Enter a number"], ["Результат вне диапазона −32768…32767", "Result out of range −32768…32767"], ["Результат вне диапазона 0…65535", "Result out of range 0…65535"], ["возврат из сравнения", "restore from compare"], [" яч.)", " cells)"], ["Внимание: ", "Warning: "], [" ячеек вне пределов, заданных в описании (", " cells outside the definition limits ("], ["). Они выделены красным.", "). They are highlighted in red."], ["Вне диапазона 16 бит", "Out of 16-bit range"], ["новое", "new"], ["Записать", "Write"], ["Описание", "Definition"], ["Отдельные значения", "Single values"], ["Не карты, а одиночные константы калибровки. Значение вводится в показанных единицах; маска — в hex.", "Not maps but single calibration constants. Enter values in the units shown; masks in hex."], ["Адрес", "Address"], ["Что это", "Description"], ["Сейчас", "Current"], ["В сравнении", "In compare"], ["Неверное значение", "Invalid value"], ["Значение вне пределов описания (", "Value outside definition limits ("], ["). Всё равно записать?", "). Write anyway?"], ["Без описания", "Undefined"], ["без описания", "undefined"], ["ID оси X ", "X axis ID "], ["ID оси Y ", "Y axis ID "], ["Добавить в описания", "Add to definitions"], ["Добавить карту или значение", "Add a map or value"], ["например 3BB40", "e.g. 3BB40"], ["как есть (заголовок или данные)", "as is (header or data)"], ["из Titanium/WinOLS (данные −2)", "from Titanium/WinOLS (data −2)"], ["Найти карту", "Find map"], ["Добавить как одиночное значение", "Add as single value"], ["Без заголовка: ", "Without header: "], ["данные с ", "data from "], ["Добавить как таблицу без осей", "Add as table without axes"], ["Неверный адрес", "Invalid address"], ["заголовок по этому адресу", "header at this address"], ["адрес — начало данных, заголовок найден выше", "address is the data start, header found above"], ["адрес внутри данных карты", "address is inside map data"], ["Заголовок карты не найден. Если это таблица без осей — используйте строку «Без заголовка», если одно число — «одиночное значение».", "Map header not found. For a table without axes use the “Without header” row, for a single number use “single value”."], [": заголовок ", ": header "], [", данные ", ", data "], ["Уже описана: ", "Already defined: "], ["Открыть", "Open"], ["Добавить", "Add"], ["Адрес должен быть чётным и внутри 0x38000–0x3FFFF", "Address must be even and within 0x38000–0x3FFFF"], ["Проверьте адрес и размеры (адрес чётный, внутри калибровки)", "Check address and size (even address, inside calibration)"], ["Описание с этим адресом уже есть", "A definition with this address already exists"], ["Внимание: описания перекрываются: ", "Warning: definitions overlap: "], ["единица", "unit"], ["делитель", "divisor"], ["смещение", "offset"], ["Изменить описание", "Edit definition"], [" (данные)", " (data)"], [" (заголовок)", " (header)"], ["Название", "Name"], ["Уверенность", "Confidence"], ["Знаковые числа", "Signed values"], ["да (−32768…32767)", "yes (−32768…32767)"], ["нет (0…65535)", "no (0…65535)"], ["Размер X × Y", "Size X × Y"], ["Значения: ед. / делитель / смещение", "Values: unit / divisor / offset"], ["Ось X: ед. / делитель / смещение", "X axis: unit / divisor / offset"], ["Ось Y: ед. / делитель / смещение", "Y axis: unit / divisor / offset"], ["Пределы (в единицах)", "Limits (in units)"], ["мин.", "min"], ["макс.", "max"], ["за ними — красный", "outside shown in red"], ["Показывать в hex", "Show as hex"], ["нет", "no"], ["да", "yes"], ["Комментарий", "Comment"], ["Физическое значение = сырое / делитель + смещение. Пример: подача 0,01 мг → делитель 100; температура 0,1 K → делитель 10, смещение −273,1.", "Physical value = raw / divisor + offset. Example: fuel 0.01 mg → divisor 100; temperature 0.1 K → divisor 10, offset −273.1."], ["Сохранить описание", "Save definition"], ["Закрыть", "Close"], ["Удалить описание", "Delete definition"], ["Такой адрес уже описан", "This address is already defined"], ["По этому адресу нет заголовка карты", "No map header at this address"], ["? Данные в прошивке не меняются.", "? Firmware data is not changed."], ["Изменений в этой сессии нет.", "No changes in this session."], ["Журнал правок этой сессии", "Edit log of this session"], ["Время", "Time"], ["Действие", "Action"], ["Слов", "Words"], ["Детали", "Details"], ["Размер ", "Size "], [" байт, ожидается ", " bytes, expected "], [". Всё равно открыть?", ". Open anyway?"], ["Открыт ", "Opened "], ["Совет: откройте стоковый файл в «Сравнить с», чтобы видеть изменения", "Tip: open the stock file in “Compare with” to see changes"], ["описания загружены из ", "definitions loaded from "], ["Не удалось загрузить описания: ", "Could not load definitions: "], ["Заменить текущие описания встроенными? Ваши добавленные описания пропадут (сохраните их перед этим).", "Replace current definitions with the built-in ones? Definitions you added will be lost (save them first)."], ["встроенные описания", "built-in definitions"], ["ВНИМАНИЕ: контрольная сумма НЕ пересчитана. Нажмите «Пересчитать сумму» перед заливкой.", "WARNING: the checksum has NOT been recalculated. Press “Recalculate checksum” before flashing."], ["Файл сохранён как ", "File saved as "], ["Нужны оба файла: прошивка и файл сравнения", "Both files are needed: firmware and compare file"], ["адрес;карта;название;x;y;было;стало;было_физ;стало_физ;изменение_%", "address;map;name;x;y;old;new;old_phys;new_phys;change_%"], ["описания из прошлой сессии (браузер)", "definitions from previous session (browser)"], ["об/мин", "rpm"], ["мг воздуха", "mg air"], ["мг", "mg"], ["мбар", "mbar"], ["% педали", "% pedal"], ["% скважн.", "% duty"], ["коэф.", "factor"], ["Сток ", "Stock "], ["1 = вкл, 0 = выкл", "1 = on, 0 = off"], ["1 = вкл", "1 = on"], ["0 = EGR закрыт всегда", "0 = EGR always closed"], ["Потолок уставки наддува (min(уставка, это))", "Boost setpoint ceiling (min(setpoint, this))"], ["Порог недодува для ошибки пути 0x1D (уставка − факт)", "Underboost threshold for path 0x1D fault (setpoint − actual)"], ["Порог передува для ошибки пути 0x1D (уставка − факт)", "Overboost threshold for path 0x1D fault (setpoint − actual)"], ["Фикс. скважность наддува в аварийном режиме", "Fixed boost duty in limp mode"], ["Скважность наддува: максимум", "Boost duty: maximum"], ["Маска ошибок → аварийный режим (бит 14 = EGR, бит 15 = наддув)", "Fault mask → limp mode (bit 14 = EGR, bit 15 = boost)"], ["EGR: порог оборотов режима 9 (клапан закрыт выше этих оборотов)", "EGR: mode 9 rpm threshold (valve closed above this rpm)"], ["EGR: скважность в режимах «закрыт»", "EGR: duty in “closed” modes"], ["EGR: порог отклонения воздуха вверх (ошибка P0400)", "EGR: upper air deviation threshold (P0400 fault)"], ["EGR: порог отклонения воздуха вниз (ошибка P0400)", "EGR: lower air deviation threshold (P0400 fault)"], ["P0400: флаг включения ошибки", "P0400: fault enable flag"], ["Путь 0x1D (наддув): флаг включения ошибки", "Path 0x1D (boost): fault enable flag"], ["Адрес карты = начало заголовка (слово ID оси X). Данные лежат построчно по X: индекс = x*ny + y.", "Map address = start of header (X axis ID word). Data is stored row by row along X: index = x*ny + y."], ["Аварийный ограничитель момента (30 мг): неисправность педали/датчиков", "Limp-mode torque limiter (30 mg): pedal/sensor fault"], ["Аварийный потолок подачи = f(обороты), набор 1", "Limp-mode fuel ceiling = f(rpm), set 1"], ["Аварийный потолок подачи = f(обороты), набор 2", "Limp-mode fuel ceiling = f(rpm), set 2"], ["Вес 0x3C524 = f(атм. давление)", "Weight of 0x3C524 = f(atm. pressure)"], ["Вес 0x3CBA2 = f(ОЖ) (0)", "Weight of 0x3CBA2 = f(coolant) (0)"], ["Вес 0x3CFA4 = f(ОЖ)", "Weight of 0x3CFA4 = f(coolant)"], ["Вес 0x3D09C = f(атм. давление)", "Weight of 0x3D09C = f(atm. pressure)"], ["Вес отклонения наддува для EGR (0)", "Boost deviation weight for EGR (0)"], ["Весовая кривая (0)", "Weighting curve (0)"], ["Время накала = f(ОЖ)?", "Glow time = f(coolant)?"], ["Время послепускового накала = f(ОЖ)?", "Post-start glow time = f(coolant)?"], ["Добавка к наддуву = f(обороты, атм.) × C1D8 (нули)", "Boost offset = f(rpm, atm.) × C1D8 (zeros)"], ["Добавка к углу = f(обороты, канал 2) (0)", "Timing offset = f(rpm, channel 2) (0)"], ["Добавка к уставке EGR = f(обороты, ОЖ): на холодном EGR закрыт", "EGR setpoint offset = f(rpm, coolant): EGR closed when cold"], ["Дымовой ограничитель = f(обороты, масса воздуха), РАБОЧАЯ копия  [Titanium: Injection at part throttle]", "Smoke limiter = f(rpm, air mass), ACTIVE copy  [Titanium: Injection at part throttle]"], ["Дымовой ограничитель «ext» = f(обороты, воздух), подмешивается с коэф. 0x3B926 (=0)  [Titanium: Injection ext]", "Smoke limiter “ext” = f(rpm, air), blended with factor 0x3B926 (=0)  [Titanium: Injection ext]"], ["Замена ext-ограничителя при недостоверном ДМРВ (0)", "Substitute ext limiter when MAF implausible (0)"], ["Замена дымового ограничителя при недостоверном ДМРВ (60 мг)", "Substitute smoke limiter when MAF implausible (60 mg)"], ["Замещающая температура f(C004)", "Substitute temperature f(C004)"], ["Замещающее значение массы воздуха", "Substitute air mass value"], ["Замещающее значение массы воздуха 2", "Substitute air mass value 2"], ["Запрос водителя: подача = f(обороты, педаль %)  [Titanium: Fuel during acceleration]", "Driver demand: fuel = f(rpm, pedal %)  [Titanium: Fuel during acceleration]"], ["Запрос угла начала подачи в VP44 = f(обороты, подача)", "VP44 start-of-injection request = f(rpm, fuel)"], ["Коэффициент подмешивания ext-ограничителей = f(C118), в стоке все 0", "Blend factor for ext limiters = f(C118), all 0 in stock"], ["Коэффициент уставки EGR = f(обороты, температура)", "EGR setpoint factor = f(rpm, temperature)"], ["Коэффициент уставки наддува = f(температура) (1,0)", "Boost setpoint factor = f(temperature) (1.0)"], ["Кривая f(C206) (2,50)", "Curve f(C206) (2.50)"], ["Кривая f(DC5C)", "Curve f(DC5C)"], ["Кривая f(DC98) (1,0)", "Curve f(DC98) (1.0)"], ["Кривая по ОЖ (0)", "Coolant curve (0)"], ["Кривая по ОЖ 0…100 % (вентилятор?)", "Coolant curve 0…100 % (fan?)"], ["Кривая по ОЖ 40,8…8,0 (ХХ/пуск?)", "Coolant curve 40.8…8.0 (idle/start?)"], ["Кривая по отклонению наддува для EGR (0)", "Boost deviation curve for EGR (0)"], ["Кривая-константа 5100 об/мин", "Constant curve 5100 rpm"], ["Линейное масштабирование f(DC26)", "Linear scaling f(DC26)"], ["Накал (0)", "Glow (0)"], ["Накал = f(напряжение?, ОЖ)?", "Glow = f(voltage?, coolant)?"], ["Накал f(T, ОЖ) (0)", "Glow f(T, coolant) (0)"], ["Накал f(обороты, подача) (0)", "Glow f(rpm, fuel) (0)"], ["Ограничение/линеаризация скважности наддува", "Boost duty limit/linearisation"], ["Ограничитель момента (подача по оборотам), РАБОЧАЯ копия  [Titanium: Torque limiter 2]", "Torque limiter (fuel vs rpm), ACTIVE copy  [Titanium: Torque limiter 2]"], ["Ограничитель момента «ext», подмешивается с коэф. 0x3B926 (=0)  [Titanium: Torque limiter 1]", "Torque limiter “ext”, blended with factor 0x3B926 (=0)  [Titanium: Torque limiter 1]"], ["Окно контроля EGR/массы воздуха = f(обороты, подача) → P0400", "EGR/air mass monitoring window = f(rpm, fuel) → P0400"], ["Окно контроля отклонения наддува = f(обороты, подача)", "Boost deviation monitoring window = f(rpm, fuel)"], ["Окно обороты × подача 0/65,00 → C050", "rpm × fuel window 0/65.00 → C050"], ["Окно правдоподобия = f(обороты, подача)", "Plausibility window = f(rpm, fuel)"], ["Опережение на высоте = f(обороты, подача)", "Altitude timing advance = f(rpm, fuel)"], ["Опережение при холодном пуске = f(обороты, подача)", "Cold start timing advance = f(rpm, fuel)"], ["Опорный наддув для EGR (0)", "Reference boost for EGR (0)"], ["Переворот скважности EGR: 100 % − x", "EGR duty inversion: 100 % − x"], ["Пилотная скважность клапана наддува = f(обороты, подача), 0,01 %", "Boost valve pilot duty = f(rpm, fuel), 0.01 %"], ["Поправка ДМРВ = f(T, атм.) (1,0)", "MAF correction = f(T, atm.) (1.0)"], ["Поправка предела подачи = f(обороты, ОЖ)", "Fuel limit correction = f(rpm, coolant)"], ["Поправка угла = f(обороты, подача) (0)", "Timing correction = f(rpm, fuel) (0)"], ["Поправка угла = f(обороты, температура C242)", "Timing correction = f(rpm, temperature C242)"], ["Поправка уставки EGR по атм. давлению", "EGR setpoint correction for atm. pressure"], ["Поправка уставки ХХ = f(C01A)", "Idle setpoint correction = f(C01A)"], ["Потолок суммы поправок угла (16,00)", "Ceiling for summed timing corrections (16.00)"], ["Похоже на уставку оборотов ХХ = f(ОЖ, температура воздуха)", "Likely idle speed setpoint = f(coolant, air temperature)"], ["Похоже: момент трения = f(обороты, ОЖ)", "Likely: friction torque = f(rpm, coolant)"], ["Похоже: пересчёт момент ↔ подача", "Likely: torque ↔ fuel conversion"], ["Похоже: подача → момент = f(обороты, подача)", "Likely: fuel → torque = f(rpm, fuel)"], ["Пусковая подача = f(обороты, ОЖ)", "Start fuel = f(rpm, coolant)"], ["Регулятор ХХ / моментная карта = f(обороты, E23C)", "Idle controller / torque map = f(rpm, E23C)"], ["Связано с ХХ = f(E034) (0)", "Idle related = f(E034) (0)"], ["Связано с давлением наддува = f(обороты, DDC4)", "Boost pressure related = f(rpm, DDC4)"], ["Связано с пуском = f(ОЖ)", "Start related = f(coolant)"], ["Смещение по атм. давлению для защиты от перегрева (0)", "Atm. pressure offset for over-temperature protection (0)"], ["Снижение подачи = f(обороты, подача) × (C242 − порог)/4096 (по температуре)", "Fuel derating = f(rpm, fuel) × (C242 − threshold)/4096 (temperature)"], ["Снижение подачи при перегреве = f(ОЖ+смещение, C2B0)", "Over-temperature fuel derating = f(coolant+offset, C2B0)"], ["Снижение подачи при перегреве = f(температура C006, C2B0)", "Over-temperature fuel derating = f(temperature C006, C2B0)"], ["Снижение уставки наддува на высоте = f(обороты, подача)", "Altitude boost setpoint reduction = f(rpm, fuel)"], ["Угол, канал 2 = f(обороты, подача) (0)", "Timing, channel 2 = f(rpm, fuel) (0)"], ["Угол, канал 2, часть = f(обороты, подача) (0)", "Timing, channel 2, part = f(rpm, fuel) (0)"], ["Уставка EGR по массе воздуха = f(обороты, подача), 0,1 мг/такт  [Titanium: Phase of injection — подпись неверна]", "EGR air mass setpoint = f(rpm, fuel), 0.1 mg/stroke  [Titanium: Phase of injection — label is wrong]"], ["Уставка наддува, база = f(обороты, подача)  [Titanium: Turbo pressure]", "Boost setpoint, base = f(rpm, fuel)  [Titanium: Turbo pressure]"], ["Характеристика ДМРВ (сырое → расход)", "MAF characteristic (raw → flow)"], ["Блок:", "ECU:"], ["Определён блок: ", "ECU detected: "], ["Блок: ", "ECU: "], ["Карта f(", "Map f("], ["Кривая f(", "Curve f("], ["обороты", "rpm"], ["педаль", "pedal"], ["атм. давление", "atm. pressure"], ["подача", "fuel"], ["Рабочий набор данных 0x38000; второй набор 0x00000–0x07FFF код не использует.", "Working dataset 0x38000; the second set at 0x00000–0x07FFF is not used by the code."], ["Запрос водителя = f(обороты, педаль)  [Titanium: fuel during acceleration]", "Driver demand = f(rpm, pedal)  [Titanium: fuel during acceleration]"], ["Ограничитель подачи = f(атм. давление, обороты)  [Titanium: torque limiter, 4 кривые]", "Fuel limit = f(atm. pressure, rpm)  [Titanium: torque limiter, 4 curves]"], ["Ограничитель дыма = f(обороты, масса воздуха)", "Smoke limiter = f(rpm, air mass)"], ["Вход ограничителя дыма (поправка по температуре, в стоке 1:1)", "Smoke limiter input (temperature correction, 1:1 in stock)"], ["Пусковая подача = f(обороты, температура)", "Start fuel = f(rpm, temperature)"], ["Поправка по температуре топлива", "Fuel temperature correction"], ["Подача → уставка положения дозатора ТНВД  [Titanium: injection (Ext.)]", "Fuel → pump metering position setpoint  [Titanium: injection (Ext.)]"], ["[Titanium: phase of injection], процесс #45 вместе с другими картами впрыска", "[Titanium: phase of injection], process #45 with other injection maps"], ["Знаковые значения, похоже на угол впрыска", "Signed values, looks like injection timing"]];
   const KEY = 'edc15m_lang';
   const map = new Map(PAIRS);
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

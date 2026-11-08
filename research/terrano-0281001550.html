@@ -99,6 +99,7 @@ ul.plain{margin:0;padding-left:18px;display:grid;gap:4px;max-width:72ch}
   <div class="callouts">
     <div class="fix good"><span class="k">0281001791 ≈ 0281001550</span><p><b>Same hardware and memory layout as the Frontera X22DTH ECU.</b> Two flash chips, C167 with mask ROM, code at 0x10000–0x37FFF, calibration at 0x38000–0x3FFFF through DPP0/DPP1 = 0x0E/0x0F, the same task prologue and the same ROM routine addresses (map interpolation <code>00:20D6</code> / <code>00:20AC</code>, task exit <code>00:07B4</code>). Frontera tools and findings carry over; map addresses do not.</p></div>
     <div class="fix"><span class="k">ROM 26FC</span><p><b>The pump metering controller is in ROM.</b> The flash computes the metering setpoint <code>FC56</code> and passes it straight to <code>CALLS 00:26FC</code>. There is no PI controller and no PWM/CAPCOM2 write in the flash, so the controller gains cannot be changed. The whole fuel chain up to the setpoint is in the flash.</p></div>
+    <div class="fix good"><span class="k">checksum</span><p><b>Checksum algorithm is the same as on the Frontera.</b> One block per dataset (0x00B80–0x07FFB → 0x07FFC, 0x38B80–0x3FFFB → 0x3FFFC); both match on the stock dump. The map editor supports this ECU and recalculates both.</p></div>
     <div class="fix"><span class="k">68 mg</span><p><b>Hard fuel limit in the parameter block.</b> It limits fuel independently of every map ECM Titanium lists; above 68 mg it has to be raised too.</p></div>
   </div>
 </section>
@@ -118,7 +119,7 @@ ul.plain{margin:0;padding-left:18px;display:grid;gap:4px;max-width:72ch}
     <tr><td class="a">00000–0FFFF</td><td>The CPU sees its mask ROM here; calls <code>00:xxxx</code> go there. In the file, 0x00000–0x07FFF holds a second dataset (Nissan 7F406).</td></tr>
     <tr><td class="a">10000–13FFF</td><td>Loader and services. 19-entry vector table at 0x10120 pointing into ROM (timers, ADC, serial port, reset).</td></tr>
     <tr><td class="a">10000–37FFF</td><td>Code. Dispatcher with 81 entries at 0x2F1A0 (looks like K-line diagnostics).</td></tr>
-    <tr><td class="a">38000–3FFFF</td><td>Working dataset (Nissan 7F405). Process table at 0x383F6 (60 × 10 bytes), map pointer table at 0x38F04. The last 4 bytes (0x3FFFC) look like a checksum; algorithm not identified yet.</td></tr>
+    <tr><td class="a">38000–3FFFF</td><td>Working dataset (Nissan 7F405). Process table at 0x383F6 (60 × 10 bytes), map pointer table at 0x38F04. Checksum at 0x3FFFC: the same algorithm as on the Frontera, recalculated by the map editor.</td></tr>
   </table></div>
 </section>
 

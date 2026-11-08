@@ -1,6 +1,15 @@
 # EDC15M map editor
 
-A single HTML file that runs in the browser with no server and no internet connection. Map definitions are embedded into the file at build time.
+A single HTML file that runs in the browser with no server and no internet connection. Map definitions for both supported ECUs are embedded into the file.
+
+## Supported ECUs
+
+| ECU | Definitions | Checksum |
+| --- | --- | --- |
+| Opel Frontera X22DTH, Bosch 0281001791 | 92 maps + key constants | recalculated |
+| Nissan Terrano II 2.7 TDi, Bosch 0281001550 | 58 maps | recalculated (both datasets) |
+
+When a dump is opened, the editor checks which set of definitions matches the map headers in the file and switches to it automatically. The ECU can also be chosen manually in the toolbar. Definitions you edit are stored in the browser separately for each ECU.
 
 ## Files
 
@@ -8,6 +17,7 @@ A single HTML file that runs in the browser with no server and no internet conne
 | --- | --- |
 | `EDC15M_map_editor.html` | the editor |
 | `frontera_defs.json` | map definitions for Frontera X22DTH (0281001791, UU2M6S90_S) and checksum parameters |
+| `terrano_0281001550_defs.json` | map definitions for Terrano II 2.7 TDi (0281001550, SW 1037356022): the 58 maps the code reads |
 
 A copy of the definitions is kept in `defs/`.
 
