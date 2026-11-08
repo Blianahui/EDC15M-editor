@@ -1,48 +1,42 @@
-# Terrano tools — EDC15VM+ 1037362084 / 1037362770 and 0281001550 / 1037356022
+# Terrano tools — Bosch 0281001550 / SW 1037356022
 
-Pure Python 3, no dependencies. Intermediate and output files go to `out/` in the current folder unless a path is given.
-
-## EDC15VM+ (1037362084 / 770): flash at CPU 0x80000
+Pure Python 3, no dependencies. Flash mapped from CPU address 0 (file offset = CPU address), code 0x10000–0x37FFF, working dataset 0x38000–0x3FFFF.
 
 | File | Purpose |
 | --- | --- |
 | `c166dis.py` | C166/C167 disassembler with self-test (`python3 c166dis.py`); register names from `sfr_c167cs.json` |
 | `sfr_c167cs.json` | C167CS special function register names (from the keyhana/c166-ghidra-module processor spec) |
-| `analyze2.py <dump>` | recursive descent from the entry points → `out/an.pkl` |
-| `sweep.py <dump>` | linear sweep checked against the recursive result → `out/lin.pkl` |
-| `mapuse.py <dump>` | every call to ROM map interpolation (`00:0CDC` 2D, `00:0CB2` 1D) with its map pointer and axis sources → `out/mapuse.json` |
-| `ptrtables.py <dump>` | map pointer tables in the datasets → `out/mapptrs.json` |
-| `listing.py <dump> <tag>` | annotated listing |
-| `procmaps.py <tag>` | process table with the maps reachable from each process |
-| `build.py <dump> <tag>` | full labelled listing, map ↔ code cross-reference CSV and process CSV |
+| `linsweep.py <dump> <base> <regions> <lin.pkl>` | linear sweep of the code |
+| `rd.py <dump> <base> <entries> <lo-hi> <lin.pkl> [out.pkl]` | recursive descent from comma-separated entry points, compared with the linear sweep |
+| `starts.py <lin.pkl> <lo> <hi> <starts.pkl>` | heuristic function starts (call targets and instructions after a return) |
+| `proctable.py <dump> 550 <lin.pkl> <out.json>` | process table (10-byte entries at 0x383F6) |
+| `mapuse2.py <dump> <lin.pkl> <dataset_base> <out.json> [rom_addrs]` | every call to the ROM map interpolation, resolved through the dataset pointer table |
+| `listing550.py <dump> <work_dir> <out_dir>` | annotated listing, map ↔ code cross-reference CSV, process CSV and a JSON map list |
+| `scan2.py <dump> <lo> <hi>` | map scanner: finds 1D/2D map headers in a range and prints size, axes and value range |
+| `dis.py <dump> <cpu_addr> [n] [base]` | disassemble n instructions at a CPU address |
+| `ctx.py <dump> <target> [n]` | show the instructions leading up to calls/jumps to a target (needs `out/lin.pkl`) |
+
+## Running
+
+In a folder with your dump, tools in `tools/`:
 
 ```
 python3 tools/c166dis.py
-python3 tools/analyze2.py my_084.bin
-python3 tools/sweep.py my_084.bin
-python3 tools/mapuse.py my_084.bin
-python3 tools/ptrtables.py my_084.bin
+python3 tools/linsweep.py my_550.bin 0 10000-38000 w550/lin.pkl
+python3 tools/starts.py w550/lin.pkl 10000 38000 w550/starts.pkl
+python3 tools/proctable.py my_550.bin 550 w550/lin.pkl w550/proctable.json
+python3 tools/mapuse2.py my_550.bin w550/lin.pkl 38000 w550/mapuse.json 20D6,20AC
+python3 tools/listing550.py my_550.bin w550 out550
+python3 tools/scan2.py my_550.bin 38000 40000
 ```
 
-## Generic tools (any flash base, used for 0281001550)
+`listing550.py` writes to `out550/`:
 
-| File | Purpose |
-| --- | --- |
-| `scan2.py <dump> <lo> <hi>` | map scanner: finds 1D/2D map headers (axis IDs ≥ 0x8000, monotonic axes) in a range and prints size, axes and value range |
-| `rd.py <dump> <base> <entries> <lo-hi> <lin.pkl> [out.pkl]` | recursive descent from comma-separated entry points inside a code range, compared with a linear sweep |
-| `mapuse2.py <dump> <lin.pkl> <dataset_base> <out.json> [rom_addrs]` | map interpolation calls resolved through the dataset pointer table (for 0281001550: dataset 0x38000, ROM `20D6,20AC`) |
-| `fmatch.py` | helpers for comparing two firmware versions: function bodies, normalised instructions (addresses and constants masked), trigram signatures |
-| `varmap.py <dirA> <baseA> <dirB> <baseB> <fmatch.pkl> <out.json>` | maps RAM variables of firmware A to firmware B by aligning matched functions |
-| `build550.py <dump_550> <work_dir> <out_dir> <terrano_084_map_xref.csv>` | 0281001550 listing, map cross-reference, process table and 084 ↔ 550 function/variable tables, with labels ported from 084 |
-| `dis.py <dump> <cpu_addr> [n]` | disassemble n instructions at a CPU address |
-| `ctx.py <dump> <target> [n]` | show the instructions leading up to calls/jumps to a target |
+- `terrano_0281001550.lst` — full listing with functions, processes, ROM calls and map references with their X/Y sources;
+- `terrano_0281001550_map_xref.csv` — which function reads which map and from which variables;
+- `terrano_0281001550_processes.csv` — process table with known roles;
+- `terrano_0281001550_maps.json` — the same map references as data.
 
-## Not included yet
+## Checked on a real dump
 
-A few steps of the original analysis were done with one-off commands that are not in this folder:
-
-- extracting the process table (`proctable.json`) and the list of function starts (`starts.pkl`);
-- the function matching run that writes `fmatch.pkl` (the comparison itself uses the helpers in `fmatch.py`);
-- the 084 map list CSV (`terrano_084_maps.csv`) used by `build.py` for ECM names.
-
-`build.py`, `procmaps.py`, `varmap.py` and `build550.py` need these files. Everything else runs on a dump alone.
+Run on 0281001550 / 1037356022: 40,657 instructions, 449 functions, process table at 0x383F6 with 60 entries (82 of 100 function pointers coincide with independently found function starts), 77 references to 58 maps, all key maps found with the axes given in the documentation.

@@ -5,7 +5,7 @@ Pure Python 3 scripts, no dependencies. They read **your own** flash dump and pr
 | Folder | Target |
 | --- | --- |
 | [frontera/](frontera/README.md) | Opel Frontera B X22DTH, Bosch 0281001791 (EDC15M), SW UU2M6S90_S |
-| [terrano/](terrano/README.md) | Nissan Terrano II 2.7 TDi: Bosch EDC15VM+ (SW 1037362084 / 1037362770) and Bosch 0281001550 (SW 1037356022), plus tools to compare two firmware versions |
+| [terrano/](terrano/README.md) | Nissan Terrano II 2.7 TDi, Bosch 0281001550 (EDC MSA 15.5), SW 1037356022 |
 
 Both sets contain a C166/C167 instruction decoder with a self-test, recursive-descent code analysis, map discovery through map headers and pointer tables, map ↔ code cross-references and listing export.
 

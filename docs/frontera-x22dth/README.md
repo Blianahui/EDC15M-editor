@@ -10,7 +10,7 @@
 | Flash | 2 × AM29F010 (marked 58530), 256 KB file |
 | EEPROM | 24C04, 512 bytes |
 | Sister unit | 0281001793 (different software, addresses must be checked separately) |
-| Same hardware generation | Terrano 0281001550, see [docs/terrano](../terrano/msa15-0281001550.md) |
+| Same hardware generation | Terrano 0281001550, see [docs/terrano](../terrano/README.md) |
 
 All addresses in these documents are **file offsets in the flash image, from 0**. Byte order is little-endian (Intel), as on the C167. If your tool shows the file from base 0x800000, add that base.
 

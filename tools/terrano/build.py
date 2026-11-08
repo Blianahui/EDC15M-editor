@@ -30,8 +30,10 @@ for a,i in lin.items():
 # map labels from previous CSV (my guesses) by data address
 lab={0x563FC:'Fuel temperature correction: factor f(rpm, fuel) x (T-50°C)/4096',0x51E50:'Driver demand: fuel = f(rpm, pedal C0AA)',0x555F8:'Smoke limiter: f(rpm, air C110 after correction) - active when coding +26h=0',0x55846:'C110 input correction by temp. C004 (1:1)',0x55296:'Fuel limit vs rpm (no change with atm. pressure)',0x55026:'Start fuel f(rpm, temp. C002)',0x562AE:'Over-temperature fuel derating (zeros in stock)',0x560FA:'Factor atm. pressure x rpm (100% in stock)',0x563A2:'Lower bound of fuel limit vs rpm',0x56272:'Limp-mode fuel limiter vs rpm',0x55F02:'Limit rise step vs atm. pressure',0x55F56:'Limit fall step vs atm. pressure',0x55FAA:'Step factor vs temp. C004',0x51838:'Fuel -> torque (for bus / gearbox?)',0x55CCA:'Pressure correction vs temp. (boost path, inactive)',0x55A88:'Boost-based smoke limiter (inactive path, const 50 mg)'}
 lab0={}
-for r in csv.reader(open('out/terrano_084_maps.csv',encoding='utf-8-sig'),delimiter=';'):
-    if r[0].startswith('0x'): lab.setdefault(int(r[0],16),r[10])
+# optional extra labels: out/terrano_084_maps.csv (data address in column 1, label in column 11)
+if os.path.exists('out/terrano_084_maps.csv'):
+    for r in csv.reader(open('out/terrano_084_maps.csv',encoding='utf-8-sig'),delimiter=';'):
+        if r[0].startswith('0x'): lab.setdefault(int(r[0],16),r[10])
 mapat={int(u['at'],16):u for u in uses}
 jt=set(t[1] for i in lin.values() if i.kind in('jmp','cjmp') for t in i.targets if t[0]=='code')
 def vn(s):
