@@ -1,6 +1,13 @@
-# EDC15M map editor
+# EDC15M editors
 
-A single HTML file that runs in the browser with no server and no internet connection. Map definitions for both supported ECUs are embedded into the file.
+Two single-file HTML tools that run in the browser with no server and no internet connection.
+
+- `EDC15M_map_editor.html` — flash map editor (below).
+- `EDC15M_eeprom_editor.html` — EEPROM editor: builds a working 24C04 EEPROM image from a dump that starts the engine (native) and a dump a programmer accepts for writing (donor), for the Frontera X22DTH 0281001791. See [docs/frontera-x22dth/eeprom.md](../docs/frontera-x22dth/eeprom.md) for what it does and why.
+
+## Map editor
+
+Map definitions for both supported ECUs are embedded into the file.
 
 ## Supported ECUs
 

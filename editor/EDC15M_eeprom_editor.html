@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EDC15M · EEPROM editor</title>
+<meta name="description" content="Build a working EDC15M 24C04 EEPROM: native base (starts the engine) plus the write-enable block from a donor dump">
+<style>
+:root{--bg:#eef1f3;--panel:#fff;--fg:#18222b;--muted:#5d6a75;--line:#d3dade;--accent:#0e6b86;--accent-soft:#d8ebf1;
+--chg:#b45f06;--chg-soft:#fbe9d2;--bad:#b3262b;--bad-soft:#f8dada;--ok:#2c7a3d;--ok-soft:#dcefe0;--sel:#1d63c9;
+--mono:Consolas,"Cascadia Mono","DejaVu Sans Mono",Menlo,monospace;--sans:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#12181d;--panel:#1a232a;--fg:#e2e8ec;--muted:#93a1ab;--line:#2c3943;--accent:#5fb7d1;--accent-soft:#18394a;
+--chg:#f0a75a;--chg-soft:#3d2a14;--bad:#f08a8e;--bad-soft:#40191b;--ok:#7fc88d;--ok-soft:#183121;--sel:#6aa4ff;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font:14px/1.5 var(--sans)}
+button,input,select{font:inherit;color:inherit}
+button{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:default}
+input,select{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:5px 8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.mono{font-family:var(--mono)}
+header{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+header .title{font-weight:600;margin-right:auto;font-size:16px}
+header .top{display:flex;gap:6px;font-family:var(--mono);font-size:13px;align-items:center}
+header .top button{font:inherit;background:none;border:0;padding:2px 4px;color:var(--accent);text-decoration:underline;cursor:pointer}
+header .top button[aria-pressed="true"]{color:var(--fg);font-weight:600;text-decoration:none;cursor:default}
+header a{color:var(--accent);font-family:var(--mono);font-size:13px;text-decoration:none}
+header a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:18px 16px 60px;display:grid;gap:16px}
+.warn{background:var(--bad-soft);color:var(--bad);border-radius:5px;padding:10px 14px;font-size:13.5px;display:grid;gap:4px}
+.warn b{color:inherit}
+.info{background:var(--accent-soft);border-radius:5px;padding:10px 14px;font-size:13.5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:10px}
+.card h2{margin:0;font-size:16px;font-weight:600}
+.card h3{margin:0;font-size:14px;font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.loader{display:grid;gap:8px;border:1px solid var(--line);border-radius:5px;padding:12px;background:var(--bg)}
+.loader .lbl{font-weight:600;font-size:13.5px}
+.loader .sub{color:var(--muted);font-size:12.5px}
+.checks{display:grid;gap:4px;font-size:13px;font-family:var(--mono)}
+.chk{display:flex;gap:8px;align-items:flex-start}
+.chk .ic{flex:none;width:1.3em}
+.chk.ok{color:var(--ok)}
+.chk.bad{color:var(--bad)}
+.chk.na{color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+label.rad{display:flex;gap:6px;align-items:flex-start;font-size:13.5px;cursor:pointer}
+label.rad input{margin-top:3px}
+details{border:1px solid var(--line);border-radius:5px;padding:8px 12px;background:var(--bg)}
+details summary{cursor:pointer;font-size:13px;color:var(--muted)}
+.advrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px;font-size:13px}
+.advrow input[type=text]{width:90px}
+table.hex{border-collapse:collapse;font:12px var(--mono);width:100%}
+table.hex th,table.hex td{border:1px solid var(--line);padding:2px 5px;text-align:center;white-space:nowrap}
+table.hex th{background:var(--bg);color:var(--muted);font-weight:400}
+table.hex td.off{color:var(--muted);text-align:right;background:var(--bg)}
+table.hex td.g3{background:var(--accent-soft)}
+table.hex td.diffout{background:var(--chg-soft)}
+table.hex td.g3.result{outline:2px solid var(--accent);outline-offset:-2px;font-weight:600}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);align-items:center}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.report{display:grid;gap:4px;font-size:13px}
+.report li{margin:0 0 2px}
+.fieldtbl{border-collapse:collapse;font-size:13px;width:100%}
+.fieldtbl th,.fieldtbl td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left;font-family:var(--mono)}
+.fieldtbl th{font-family:var(--sans);color:var(--muted);font-weight:600}
+.fieldtbl td.lbl{font-family:var(--sans)}
+.hexview{overflow:auto;max-height:46vh}
+footer{color:var(--muted);font-size:12.5px;display:grid;gap:4px;padding-top:6px;border-top:1px solid var(--line)}
+footer a{color:var(--accent)}
+html[lang="en"] [data-ru],html[lang="ru"] [data-en]{display:none!important}
+.status{font-size:12.5px;color:var(--muted)}
+.ok-txt{color:var(--ok)}
+.bad-txt{color:var(--bad)}
+.hide{display:none!important}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.fnin{width:220px}
+</style>
+</head>
+<body>
+<header>
+  <span class="title">EDC15M · <span data-en>EEPROM editor</span><span data-ru>редактор EEPROM</span></span>
+  <div class="top" role="group" aria-label="Language / Язык">
+    <button type="button" data-set="en" aria-pressed="true">English</button><span>·</span><button type="button" data-set="ru" aria-pressed="false">Русский</button>
+  </div>
+  <a href="../index.html">← <span data-en>home</span><span data-ru>на главную</span></a>
+  <a href="https://github.com/Blianahui/EDC15M-editor" target="_blank" rel="noopener">GitHub</a>
+</header>
+<div class="wrap">
+
+  <p data-en>Builds an EEPROM image that both starts the engine (native immobiliser data) and is accepted for flashing by the programmer (donor's write-enable block). Everything runs locally in the browser; files are never uploaded.</p>
+  <p data-ru>Собирает образ EEPROM, который одновременно заводит двигатель (родные данные иммобилайзера) и принимается программатором на запись (блок разрешения записи от донора). Всё работает локально в браузере, файлы никуда не отправляются.</p>
+
+  <div class="warn">
+    <b data-en>Scope: verified only for Opel Frontera B X22DTH, Bosch 0281001791, software UU2M6S90_S, EEPROM 24C04 (512 bytes).</b>
+    <b data-ru>Область применимости: проверено только для Opel Frontera B X22DTH, Bosch 0281001791, ПО UU2M6S90_S, EEPROM 24C04 (512 байт).</b>
+    <span data-en>On a different ECU or software version the location of the write-enable block (and the other regions below) may differ and must be re-verified — do not trust these offsets blindly. This tool edits only the write-enable block (G3); it never changes the immobiliser data, so it does not help with bypassing an immobiliser.</span>
+    <span data-ru>На другом блоке или другой версии ПО расположение блока разрешения записи (и прочих регионов ниже) может отличаться и его нужно проверять заново — не доверяйте этим смещениям вслепую. Инструмент меняет только блок разрешения записи (G3) и никогда не трогает данные иммобилайзера, так что он не помогает обходить иммобилайзер.</span>
+  </div>
+
+  <div class="card">
+    <h2 data-en>1. Load the two dumps</h2><h2 data-ru>1. Загрузить два дампа</h2>
+    <div class="cols">
+      <div class="loader">
+        <div class="lbl"><span data-en>Starter — the dump the car starts with (native)</span><span data-ru>Основа (starter) — дамп, с которым машина заводится (родной)</span></div>
+        <div class="sub" data-en>This file's immobiliser data and everything outside the write-enable block end up in the result unchanged.</div>
+        <div class="sub" data-ru>Данные иммобилайзера и всё остальное, кроме блока разрешения записи, из этого файла переходят в результат без изменений.</div>
+        <input type="file" id="fStarter">
+        <div class="checks" id="cStarter"></div>
+      </div>
+      <div class="loader">
+        <div class="lbl"><span data-en>Flasher — the dump the programmer accepts for writing (donor)</span><span data-ru>Донор (flasher) — дамп, который программатор принимает на запись</span></div>
+        <div class="sub" data-en>Only its write-enable block (G3) is taken; its immobiliser data and everything else is discarded.</div>
+        <div class="sub" data-ru>Из него берётся только блок разрешения записи (G3); его данные иммобилайзера и всё остальное не используются.</div>
+        <input type="file" id="fFlasher">
+        <div class="checks" id="cFlasher"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 data-en>2. What to transplant</h2><h2 data-ru>2. Что переносить</h2>
+    <div class="row">
+      <span><b data-en>Full G3, 0x4C–0x5F (20 bytes)</b><b data-ru>Весь G3, 0x4C–0x5F (20 байт)</b> —
+      <span data-en>verified on a real start and a real write.</span><span data-ru>проверено на реальном пуске и реальной записи.</span></span>
+    </div>
+    <details>
+      <summary><span data-en>Advanced: custom region (for a different ECU/software — unverified)</span><span data-ru>Дополнительно: своя область (для другого блока/ПО — не проверено)</span></summary>
+      <div class="advrow">
+        <label class="rad" style="margin:0"><input type="checkbox" id="cCustom"><span data-en>use a custom region instead of G3</span><span data-ru>использовать свою область вместо G3</span></label>
+        <span data-en>offset</span><span data-ru>смещение</span> <input type="text" id="iCustOff" class="mono" value="4C" placeholder="4C" style="width:60px">
+        <span data-en>length</span><span data-ru>длина</span> <input type="text" id="iCustLen" class="mono" value="14" placeholder="14" style="width:60px">
+        <span class="status" data-en>(hex, bytes). The checklist below still runs the standard G3 checks — treat their result as informational outside Frontera 0281001791.</span>
+        <span class="status" data-ru>(hex, байты). Проверки ниже всё равно считаются по стандартному G3 — на других блоках их результат носит справочный характер.</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="card" id="cardBuild">
+    <h2 data-en>3. Build</h2><h2 data-ru>3. Собрать</h2>
+    <div class="actions">
+      <button class="pri" id="bBuild" disabled><span data-en>Build combined EEPROM</span><span data-ru>Собрать EEPROM</span></button>
+      <input type="text" id="iFname" class="fnin mono" value="combined.bin">
+      <button id="bSave" disabled><span data-en>Save file</span><span data-ru>Сохранить файл</span></button>
+      <span id="buildStatus" class="status"></span>
+    </div>
+    <div id="result" class="hide" style="display:grid;gap:14px">
+      <div id="reportBox" class="info report"></div>
+
+      <div>
+        <h3 data-en>G3 fields: starter / flasher / result</h3><h3 data-ru>Поля G3: основа / донор / результат</h3>
+        <table class="fieldtbl" id="fieldTbl"></table>
+      </div>
+
+      <div>
+        <div class="row" style="justify-content:space-between">
+          <h3 data-en>Full hex dump</h3><h3 data-ru>Полный hex-дамп</h3>
+          <div class="legend">
+            <span><i class="sw" style="background:var(--accent-soft)"></i><span data-en>transplanted region (G3)</span><span data-ru>переносимая область (G3)</span></span>
+            <span><i class="sw" style="background:var(--chg-soft)"></i><span data-en>differs starter↔flasher, kept from starter</span><span data-ru>отличается основа↔донор, оставлено от основы</span></span>
+          </div>
+        </div>
+        <div class="hexview"><table class="hex" id="hexTbl"></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 data-en>Why this works</h2><h2 data-ru>Почему это работает</h2>
+    <p data-en>On this ECU the flash write-enable is controlled only by 20 bytes at 0x4C–0x5F (“G3”); the engine-start / immobiliser path never reads G3, and the programming path never reads the immobiliser block. So a native dump's immobiliser data and a donor dump's write-enable block can be combined freely, as long as both are internally consistent (triple-redundant values and the marker below). Full details, including what G3 is <i>not</i> (not a VIN, not a simple checksum, its tail byte isn't derived from the rest), are in the project's <a href="https://github.com/Blianahui/EDC15M-editor" target="_blank" rel="noopener">finding writeup</a>.</p>
+    <p data-ru>В этом блоке разрешение записи флеша определяется только 20 байтами 0x4C–0x5F («G3»); тракт пуска/иммобилайзера G3 не читает, а тракт программирования не читает блок иммобилайзера. Поэтому данные иммобилайзера родного дампа и блок разрешения записи донорского дампа можно свободно комбинировать, если оба внутренне непротиворечивы (тройное резервирование значений и маркер, см. ниже). Подробности, в том числе чем G3 <i>не является</i> (не VIN, не простая контрольная сумма, хвостовой байт не выводится из остального блока), — в <a href="https://github.com/Blianahui/EDC15M-editor" target="_blank" rel="noopener">описании находки</a> в репозитории проекта.</p>
+  </div>
+
+  <footer>
+    <span data-en>For research and off-road vehicles only. Changing EEPROM content can prevent the ECU from starting the engine or from accepting flash writes. No warranty, use at your own risk. Keep your original files.</span>
+    <span data-ru>Только для изучения и техники вне дорог общего пользования. Изменение содержимого EEPROM может привести к тому, что блок не заведёт двигатель или не примет запись флеша. Без гарантий, на свой риск. Храните оригинальные файлы.</span>
+    <span><span data-en>Licensed under GPL-3.0.</span><span data-ru>Лицензия GPL-3.0.</span> <a href="https://github.com/Blianahui/EDC15M-editor">github.com/Blianahui/EDC15M-editor</a></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var SIZE = 512;
+var LKEY = 'edc15m_lang';
+
+/* ---------- language ---------- */
+function applyLang(l){
+  document.documentElement.lang = l;
+  document.querySelectorAll('header .top button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.set===l?'true':'false'); });
+  renderAll();
+}
+document.querySelectorAll('header .top button').forEach(function(b){
+  b.addEventListener('click', function(){ try{localStorage.setItem(LKEY,b.dataset.set);}catch(e){} applyLang(b.dataset.set); });
+});
+function L(){ return document.documentElement.lang==='ru' ? 'ru':'en'; }
+function T(en,ru){ return L()==='ru' ? ru : en; }
+
+/* ---------- byte helpers ---------- */
+function hx(b){ return b.toString(16).toUpperCase().padStart(2,'0'); }
+function parseHexInt(s, def){ var v = parseInt(String(s||'').replace(/^0x/i,''),16); return isNaN(v)?def:v; }
+
+function tripleOk(buf, off, len){
+  for(var i=0;i<len;i++){
+    if(buf[off+i] !== buf[off+len+i] || buf[off+i] !== buf[off+2*len+i]) return false;
+  }
+  return true;
+}
+function validateG3(buf){
+  var problems = [];
+  if(!tripleOk(buf,0x50,2)) problems.push(T('V1 (0x50) — the three copies differ','V1 (0x50) — три копии не совпадают'));
+  if(!tripleOk(buf,0x56,2)) problems.push(T('V2 (0x56) — the three copies differ','V2 (0x56) — три копии не совпадают'));
+  if(!(buf[0x5C]===0x55 && buf[0x5D]===0xAA)) problems.push(T('no 55 AA marker at 0x5C (found ','нет маркера 55 AA на 0x5C (есть ')+hx(buf[0x5C])+' '+hx(buf[0x5D])+')');
+  return problems;
+}
+function validateImmo(buf){
+  for(var i=0;i<0x10;i++){
+    if(!(buf[0xE8+i]===buf[0xF8+i] && buf[0xE8+i]===buf[0x108+i])) return false;
+  }
+  return true;
+}
+
+/* ---------- state ---------- */
+var state = { starter:null, flasher:null, result:null, diffRuns:null, lo:0x4C };
+
+function readFile(input, cb){
+  var f = input.files && input.files[0];
+  if(!f){ cb(null); return; }
+  var r = new FileReader();
+  r.onload = function(){ cb(new Uint8Array(r.result)); };
+  r.onerror = function(){ cb(null); };
+  r.readAsArrayBuffer(f);
+}
+
+function renderChecks(container, buf, isStarter){
+  container.innerHTML = '';
+  if(!buf){ return; }
+  var rows = [];
+  rows.push(sizeCheck(buf));
+  var g3problems = validateG3(buf);
+  rows.push({ok: g3problems.length===0, text: g3problems.length===0 ? T('G3 internally consistent','G3 внутренне непротиворечив') : T('G3 problem: ','проблема G3: ')+g3problems.join('; ')});
+  if(isStarter){
+    var immoOk = validateImmo(buf);
+    rows.push({ok: immoOk, text: immoOk ? T('immobiliser (0xE8/0xF8/0x108) consistent — should start','иммобилайзер (0xE8/0xF8/0x108) согласован — должен заводить') : T('immobiliser copies differ — file may be corrupt or misread','копии иммобилайзера не совпадают — файл повреждён или прочитан неверно')});
+  }
+  rows.forEach(function(r){
+    var d = document.createElement('div');
+    d.className = 'chk ' + (r.ok?'ok':'bad');
+    d.innerHTML = '<span class="ic">'+(r.ok?'✓':'✗')+'</span><span>'+r.text+'</span>';
+    container.appendChild(d);
+  });
+}
+function sizeCheck(buf){
+  var ok = buf.length === SIZE;
+  return {ok: ok, text: ok ? T('size 512 bytes','размер 512 байт') : T('size '+buf.length+' bytes, expected 512 — wrong dump?','размер '+buf.length+' байт, ожидалось 512 — не тот дамп?')};
+}
+
+document.getElementById('fStarter').addEventListener('change', function(e){
+  readFile(e.target, function(buf){ state.starter = buf; renderChecks(document.getElementById('cStarter'), buf, true); updateBuildEnabled(); clearResult(); });
+});
+document.getElementById('fFlasher').addEventListener('change', function(e){
+  readFile(e.target, function(buf){ state.flasher = buf; renderChecks(document.getElementById('cFlasher'), buf, false); updateBuildEnabled(); clearResult(); });
+});
+['cCustom'].forEach(function(id){ document.getElementById(id).addEventListener('change', clearResult); });
+document.getElementById('iCustOff').addEventListener('input', clearResult);
+document.getElementById('iCustLen').addEventListener('input', clearResult);
+
+function updateBuildEnabled(){
+  var ok = state.starter && state.flasher && state.starter.length===SIZE && state.flasher.length===SIZE;
+  document.getElementById('bBuild').disabled = !ok;
+}
+function clearResult(){
+  state.result = null; state.diffRuns = null;
+  document.getElementById('result').classList.add('hide');
+  document.getElementById('bSave').disabled = true;
+  document.getElementById('buildStatus').textContent = '';
+}
+
+function currentLo(){
+  if(document.getElementById('cCustom').checked){
+    return parseHexInt(document.getElementById('iCustOff').value, 0x4C);
+  }
+  return 0x4C;
+}
+function currentHi(lo){
+  if(document.getElementById('cCustom').checked){
+    var len = parseHexInt(document.getElementById('iCustLen').value, 0x14);
+    return lo+len;
+  }
+  return 0x60;
+}
+
+document.getElementById('bBuild').addEventListener('click', function(){
+  var starter = state.starter, flasher = state.flasher;
+  if(!starter || !flasher) return;
+  if(starter.length!==SIZE || flasher.length!==SIZE){
+    document.getElementById('buildStatus').textContent = T('both files must be exactly 512 bytes','оба файла должны быть ровно 512 байт');
+    return;
+  }
+  var lo = currentLo(), hi = currentHi(lo);
+  var out = new Uint8Array(starter); // base = starter
+  for(var i=lo;i<hi;i++) out[i] = flasher[i];
+
+  // diff regions outside the transplanted window, kept from starter
+  var diffs = [];
+  for(var i=0;i<SIZE;i++){ if(starter[i]!==flasher[i] && !(i>=lo && i<hi)) diffs.push(i); }
+  var runs = [];
+  for(var i=0;i<diffs.length;i++){
+    if(i===0 || diffs[i]!==diffs[i-1]+1) runs.push([diffs[i],diffs[i]]);
+    else runs[runs.length-1][1] = diffs[i];
+  }
+
+  state.result = out; state.diffRuns = runs; state.lo = lo; state.hi = hi;
+
+  var report = [];
+  report.push(T('Base: starter (native, starts the engine). Transplanted ','Основа: starter (родной, заводит). Перенесена область ')+'0x'+hx(lo)+'–0x'+hx(hi-1)+T(' from flasher.',' из flasher.'));
+  if(runs.length){
+    report.push(T('Starter and flasher also differ in: ','Starter и flasher также различаются в: ')+runs.map(function(r){return '0x'+hx(r[0])+(r[1]>r[0]?'-0x'+hx(r[1]):'');}).join(', ')+T(' — left from starter (immobiliser/VIN/adaptations).',' — оставлено от starter (иммобилайзер/VIN/адаптации).'));
+  } else {
+    report.push(T('No other differences between starter and flasher outside the transplanted region.','Других отличий starter и flasher за пределами переносимой области нет.'));
+  }
+  var immoOk = validateImmo(out);
+  report.push(immoOk ? T('Result check: immobiliser data is native and consistent — start should be preserved.','Проверка результата: данные иммобилайзера родные и согласованы — пуск должен сохраниться.')
+                      : T('Warning: immobiliser copies in the result do not match — check the starter file.','Внимание: копии иммобилайзера в результате не совпадают — проверьте файл starter.'));
+  var modeCustom = document.getElementById('cCustom').checked;
+  if(modeCustom){
+    report.push(T('Note: custom region in use — this is outside the verified Frontera 0281001791 case.','Внимание: используется своя область — это за пределами проверенного случая Frontera 0281001791.'));
+  }
+  renderReport(report, immoOk);
+  renderFieldTable(starter, flasher, out);
+  renderHex(starter, flasher, out, lo, hi, runs);
+
+  document.getElementById('result').classList.remove('hide');
+  document.getElementById('bSave').disabled = false;
+  document.getElementById('buildStatus').textContent = '';
+});
+
+var lastReport = null, lastImmoOk = true;
+function renderReport(report, immoOk){
+  lastReport = report; lastImmoOk = immoOk;
+  var box = document.getElementById('reportBox');
+  box.className = 'report ' + (immoOk ? 'info' : 'warn');
+  box.innerHTML = '<ul style="margin:0;padding-left:18px">' + report.map(function(l){return '<li>'+escapeHtml(l)+'</li>';}).join('') + '</ul>';
+}
+function escapeHtml(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+/* field table: date / V1 / V2 / marker / tail for starter/flasher/result */
+var FIELDS = [
+  {off:0x4C, len:4, en:'Programming date/serial', ru:'Дата/серийник программирования'},
+  {off:0x50, len:2, en:'V1 (×3, shown once)', ru:'V1 (×3, показано один раз)'},
+  {off:0x56, len:2, en:'V2 (×3, shown once)', ru:'V2 (×3, показано один раз)'},
+  {off:0x5C, len:2, en:'Marker', ru:'Маркер'},
+  {off:0x5E, len:2, en:'Tail (unknown function)', ru:'Хвост (назначение неизвестно)'}
+];
+function bytesHex(buf, off, len){ var s=[]; for(var i=0;i<len;i++) s.push(hx(buf[off+i])); return s.join(' '); }
+function renderFieldTable(starter, flasher, out){
+  var t = document.getElementById('fieldTbl');
+  var head = '<tr><th>'+T('Field','Поле')+'</th><th>'+T('starter','starter')+'</th><th>'+T('flasher','flasher')+'</th><th>'+T('result','результат')+'</th></tr>';
+  var rows = FIELDS.map(function(f){
+    return '<tr><td class="lbl">'+T(f.en,f.ru)+' <span style="color:var(--muted)">(0x'+hx(f.off)+')</span></td>'+
+      '<td>'+bytesHex(starter,f.off,f.len)+'</td><td>'+bytesHex(flasher,f.off,f.len)+'</td><td>'+bytesHex(out,f.off,f.len)+'</td></tr>';
+  }).join('');
+  t.innerHTML = head + rows;
+}
+
+/* full hex dump, 16 bytes/row, three stacked blocks: starter / flasher / result */
+function renderHex(starter, flasher, out, lo, hi, runs){
+  var inDiffOut = new Uint8Array(SIZE);
+  runs.forEach(function(r){ for(var i=r[0];i<=r[1];i++) inDiffOut[i]=1; });
+  function rowsFor(buf, labelEn, labelRu, isResult){
+    var html = '';
+    for(var base=0; base<SIZE; base+=16){
+      html += '<tr><td class="off">0x'+base.toString(16).toUpperCase().padStart(3,'0')+'</td>';
+      for(var i=0;i<16;i++){
+        var off = base+i;
+        var cls = '';
+        var inWindow = off>=lo && off<hi;
+        if(inWindow) cls = 'g3' + (isResult ? ' result' : '');
+        else if(inDiffOut[off]) cls = 'diffout';
+        html += '<td class="'+cls+'">'+hx(buf[off])+'</td>';
+      }
+      html += '</tr>';
+    }
+    return html;
+  }
+  var head = '<tr><th></th>'+Array.from({length:16},function(_,i){return '<th>+'+i.toString(16).toUpperCase()+'</th>';}).join('')+'</tr>';
+  var block = function(buf, en, ru, isResult){
+    return '<tr><td colspan="17" style="text-align:left;font-weight:600;background:var(--bg)">'+T(en,ru)+'</td></tr>' + rowsFor(buf, en, ru, isResult);
+  };
+  document.getElementById('hexTbl').innerHTML = head
+    + block(starter, 'starter', 'starter', false)
+    + block(flasher, 'flasher', 'flasher', false)
+    + block(out, 'result', 'результат', true);
+}
+
+document.getElementById('bSave').addEventListener('click', function(){
+  if(!state.result) return;
+  var name = document.getElementById('iFname').value.trim() || 'combined.bin';
+  var blob = new Blob([state.result], {type:'application/octet-stream'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+});
+
+function renderAll(){
+  if(state.starter) renderChecks(document.getElementById('cStarter'), state.starter, true);
+  if(state.flasher) renderChecks(document.getElementById('cFlasher'), state.flasher, false);
+  if(state.result && lastReport){
+    renderReport(lastReport, lastImmoOk);
+    renderFieldTable(state.starter, state.flasher, state.result);
+    renderHex(state.starter, state.flasher, state.result, state.lo, state.hi, state.diffRuns);
+  }
+}
+
+/* ---------- init (after everything above is defined) ---------- */
+(function(){
+  var l='en';
+  try{ l = localStorage.getItem(LKEY) || ((navigator.language||'').toLowerCase().indexOf('ru')===0 ? 'ru':'en'); }catch(e){}
+  applyLang(l);
+})();
+})();
+</script>
+</body>
+</html>

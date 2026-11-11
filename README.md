@@ -3,6 +3,7 @@
 An open project around the Bosch EDC15 diesel ECUs of the early 2000s:
 
 - **Map editor** that runs in the browser: open your own dump, edit maps, compare with stock, recalculate the checksum, save. Nothing to install and nothing is uploaded; everything runs locally.
+- **EEPROM editor** (Frontera 0281001791): builds a working 24C04 EEPROM image from a dump that starts the engine and a dump a programmer accepts for writing. See [docs/frontera-x22dth/eeprom.md](docs/frontera-x22dth/eeprom.md).
 - **Firmware analysis**: memory map, code structure, calculation chains (fuel, boost, EGR, injection timing), map list tied to the code, fault paths.
 
 Website: **https://edc15m.pages.dev**  
@@ -21,7 +22,7 @@ Addresses **do not carry over** between ECUs. Even neighbouring software version
 
 ```
 index.html                 website landing page
-editor/                    map editor (EDC15M_map_editor.html) and its definitions
+editor/                    map editor (EDC15M_map_editor.html), EEPROM editor (EDC15M_eeprom_editor.html) and the map editor's definitions
 defs/                      map definition files per ECU
 research/                  interactive analysis pages (Frontera, Terrano; English and Russian)
 docs/frontera-x22dth/      Frontera analysis as text

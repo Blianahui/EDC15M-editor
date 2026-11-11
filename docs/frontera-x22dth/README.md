@@ -20,6 +20,7 @@ All addresses in these documents are **file offsets in the flash image, from 0**
 - [chains.md](chains.md) — calculation chains: fuel, boost, EGR, injection timing, fault paths.
 - [maps.md](maps.md) — key maps with verification status and the full list of 92 maps.
 - [checksum.md](checksum.md) — checksum algorithm.
+- [eeprom.md](eeprom.md) — EEPROM layout and the flash write-enable block, used by the [EEPROM editor](../../editor/EDC15M_eeprom_editor.html).
 - [tuning-notes.md](tuning-notes.md) — practical findings from Stage 1 and EGR off, common mistakes.
 
 Interactive version: [research/frontera-x22dth.html](../../research/frontera-x22dth.html).
